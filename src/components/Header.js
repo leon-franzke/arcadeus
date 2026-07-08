@@ -63,8 +63,8 @@ const Header = ({ currentPage, setCurrentPage }) => {
           </div>
           
           <div className="nav-right">
-            <a href="https://company-ceo-jade.vercel.app" className="nav-link" style={{ textDecoration: 'none' }}>Log In</a>
-            <a href="https://company-ceo-jade.vercel.app" className="btn btn-primary" style={{ textDecoration: 'none' }}>Sign Up</a>
+            <a href="https://app.arcadeus.ai" className="nav-link" style={{ textDecoration: 'none' }}>Log In</a>
+            <a href="https://app.arcadeus.ai" className="btn btn-primary" style={{ textDecoration: 'none' }}>Sign Up</a>
           </div>
         </nav>
       </div>
