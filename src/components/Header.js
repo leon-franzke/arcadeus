@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import ComingSoonModal from './ComingSoonModal';
 
 const Header = ({ currentPage, setCurrentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isInverted, setIsInverted] = useState(false);
-  const [showComingSoon, setShowComingSoon] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -66,17 +63,13 @@ const Header = ({ currentPage, setCurrentPage }) => {
           </div>
           
           <div className="nav-right">
-            <button onClick={() => setShowComingSoon(true)} className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>Log In</button>
-            <button onClick={(e) => handleNavClick(e, 'pricing')} className="btn btn-primary">Sign Up</button>
+            <a href="https://company-ceo-jade.vercel.app" className="nav-link" style={{ textDecoration: 'none' }}>Log In</a>
+            <a href="https://company-ceo-jade.vercel.app" className="btn btn-primary" style={{ textDecoration: 'none' }}>Sign Up</a>
           </div>
         </nav>
       </div>
     </header>
     
-    <ComingSoonModal 
-      isOpen={showComingSoon} 
-      onClose={() => setShowComingSoon(false)} 
-    />
     </>
   );
 };
