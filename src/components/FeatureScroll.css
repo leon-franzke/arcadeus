@@ -1,15 +1,6 @@
 .feature-scroll {
   background: var(--bg-light);
-  position: relative;
-}
-
-.feature-scroll-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+  padding: 120px 0;
 }
 
 .feature-scroll-inner {
