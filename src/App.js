@@ -1,53 +1,29 @@
-import React, { useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Features from './components/Features';
-import About from './components/About';
-import Contact from './components/Contact';
-import Product from './components/Product';
-import Pricing from './components/Pricing';
-import PrivacyPolicy from './components/PrivacyPolicy';
+import React from 'react';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  const renderPage = () => {
-    switch(currentPage) {
-      case 'product':
-        return (
-          <>
-            <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-            <Product />
-          </>
-        );
-      case 'pricing':
-        return (
-          <>
-            <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-            <Pricing />
-          </>
-        );
-      case 'privacy-policy':
-        return <PrivacyPolicy setCurrentPage={setCurrentPage} />;
-      case 'home':
-      default:
-        return (
-          <>
-            <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-            <Hero setCurrentPage={setCurrentPage} />
-            <Services />
-            <About setCurrentPage={setCurrentPage} />
-            <Contact />
-          </>
-        );
-    }
-  };
-
   return (
-    <div className="App">
-      {renderPage()}
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: '100vh',
+      backgroundColor: '#0D0D0D',
+      fontFamily: 'Georgia, serif',
+    }}>
+      <h1 style={{
+        fontSize: '28px',
+        fontWeight: '600',
+        color: '#ffffff',
+        letterSpacing: '0.04em',
+        marginBottom: '12px',
+      }}>Arcadeus</h1>
+      <p style={{
+        fontSize: '14px',
+        color: 'rgba(255,255,255,0.4)',
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+      }}>Coming soon</p>
     </div>
   );
 }
