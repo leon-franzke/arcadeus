@@ -4,9 +4,9 @@
 }
 
 .product-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 32px;
+  
+  
+  padding: 80px 4%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
