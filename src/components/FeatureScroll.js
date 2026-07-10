@@ -33,7 +33,7 @@ const FeatureScroll = () => {
     <section
       className="feature-scroll"
       ref={containerRef}
-      style={{ height: `${FEATURES.length * 120 + 100}vh` }}
+      style={{ height: `${FEATURES.length * 50 + 100}vh` }}
       id="product"
     >
       <div className="feature-scroll-sticky">
