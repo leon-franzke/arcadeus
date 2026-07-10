@@ -1,0 +1,70 @@
+.security {
+  background: #0a0a0a;
+  padding: 120px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.security-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.security-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 80px;
+}
+
+.security-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.security-desc {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.5);
+  align-self: center;
+}
+
+.security-badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 64px;
+}
+
+.security-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.security-badge-icon {
+  width: 72px;
+  height: 72px;
+  color: rgba(255,255,255,0.2);
+}
+
+.security-badge-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .security-inner { padding: 0 24px; }
+  .security-top { grid-template-columns: 1fr; gap: 24px; }
+  .security-badges { grid-template-columns: 1fr; gap: 40px; }
+}

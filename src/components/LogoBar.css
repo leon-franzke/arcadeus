@@ -1,0 +1,33 @@
+.logo-bar {
+  background: #111111;
+  padding: 28px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.logo-bar-track {
+  display: flex;
+  width: max-content;
+  animation: logoScroll 28s linear infinite;
+}
+
+.logo-bar-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-bar-item {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+  padding: 0 52px;
+  text-transform: uppercase;
+}
+
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

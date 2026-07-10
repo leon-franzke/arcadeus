@@ -1,0 +1,98 @@
+.product-sections {
+  background: var(--bg-dark);
+  padding: 40px 0 120px;
+}
+
+.product-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.product-section:first-child {
+  border-top: none;
+}
+
+.product-section.reversed .product-text { order: 2; }
+.product-section.reversed .product-visual { order: 1; }
+
+.product-text {}
+
+.product-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.product-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.product-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px;
+}
+
+.product-btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 22px;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.product-btn:hover {
+  border-color: rgba(255,255,255,0.7);
+  color: #ffffff;
+}
+
+.product-visual {
+  aspect-ratio: 16/11;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-visual-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .product-section {
+    grid-template-columns: 1fr;
+    padding: 60px 24px;
+    gap: 40px;
+  }
+  .product-section.reversed .product-text { order: 1; }
+  .product-section.reversed .product-visual { order: 2; }
+}

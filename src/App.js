@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
-import Product from './components/Product';
-import Pricing from './components/Pricing';
-import PrivacyPolicy from './components/PrivacyPolicy';
+import LogoBar from './components/LogoBar';
+import FeatureScroll from './components/FeatureScroll';
+import Stats from './components/Stats';
+import WhySection from './components/WhySection';
+import ProductSections from './components/ProductSections';
+import SecuritySection from './components/SecuritySection';
+import BottomCTA from './components/BottomCTA';
+import Footer from './components/Footer';
 
 const PREVIEW_KEY = 'arcadeus_preview';
 const PREVIEW_PASSWORD = 'ARCADEUS';
@@ -21,7 +23,7 @@ function ComingSoon() {
       justifyContent: 'center',
       minHeight: '100vh',
       backgroundColor: '#0D0D0D',
-      fontFamily: 'Georgia, serif',
+      fontFamily: "'Source Serif Pro', Georgia, serif",
     }}>
       <h1 style={{
         fontSize: '28px',
@@ -35,6 +37,7 @@ function ComingSoon() {
         color: 'rgba(255,255,255,0.4)',
         letterSpacing: '0.08em',
         textTransform: 'uppercase',
+        fontFamily: "'Inter', sans-serif",
       }}>Coming soon</p>
     </div>
   );
@@ -42,7 +45,6 @@ function ComingSoon() {
 
 function App() {
   const [unlocked, setUnlocked] = useState(false);
-  const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -55,39 +57,20 @@ function App() {
 
   if (!unlocked) return <ComingSoon />;
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'product':
-        return (
-          <>
-            <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-            <Product />
-          </>
-        );
-      case 'pricing':
-        return (
-          <>
-            <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-            <Pricing />
-          </>
-        );
-      case 'privacy-policy':
-        return <PrivacyPolicy setCurrentPage={setCurrentPage} />;
-      case 'home':
-      default:
-        return (
-          <>
-            <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-            <Hero setCurrentPage={setCurrentPage} />
-            <Services />
-            <About setCurrentPage={setCurrentPage} />
-            <Contact />
-          </>
-        );
-    }
-  };
-
-  return <div className="App">{renderPage()}</div>;
+  return (
+    <div className="App">
+      <Header />
+      <Hero />
+      <LogoBar />
+      <FeatureScroll />
+      <Stats />
+      <WhySection />
+      <ProductSections />
+      <SecuritySection />
+      <BottomCTA />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
