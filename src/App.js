@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import LogoBar from './components/LogoBar';
 import FeatureScroll from './components/FeatureScroll';
+import ImpactStats from './components/ImpactStats';
 import Stats from './components/Stats';
 import WhySection from './components/WhySection';
 import ProductSections from './components/ProductSections';
@@ -63,6 +64,7 @@ function App() {
       <Hero />
       <LogoBar />
       <FeatureScroll />
+      <ImpactStats />
       <Stats />
       <WhySection />
       <ProductSections />
