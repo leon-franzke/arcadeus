@@ -41,6 +41,27 @@
   letter-spacing: -0.01em;
 }
 
+.hero-hmrc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero-hmrc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+}
+
 .hero-subtitle {
   font-family: var(--font-sans);
   font-size: 17px;

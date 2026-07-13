@@ -22,6 +22,17 @@ const Header = () => {
   return (
     <>
       <header className={`header ${theme}`}>
+        <a
+          className="header-banner"
+          href="https://www.gov.uk/guidance/check-when-you-can-sign-up-for-making-tax-digital-for-income-tax"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="header-banner-text">
+            MTD for Income Tax becomes mandatory for incomes over £30,000 from April 2027 — Is your business ready?
+          </span>
+          <span className="header-banner-link">Read HMRC guidance →</span>
+        </a>
         <div className="header-inner">
           <span className="header-logo" onClick={onLogoClick} style={{ cursor: modal ? 'pointer' : 'default' }}>Arcadeus</span>
 
