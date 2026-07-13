@@ -9,6 +9,7 @@ import Stats from './components/Stats';
 import WhySection from './components/WhySection';
 import ProductSections from './components/ProductSections';
 import SecuritySection from './components/SecuritySection';
+import MTDSection from './components/MTDSection';
 import BottomCTA from './components/BottomCTA';
 import Footer from './components/Footer';
 
@@ -69,6 +70,7 @@ function App() {
       <WhySection />
       <ProductSections />
       <SecuritySection />
+      <MTDSection />
       <BottomCTA />
       <Footer />
     </div>

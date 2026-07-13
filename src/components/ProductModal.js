@@ -174,6 +174,42 @@ const TaxPlaceholder = () => (
   </div>
 );
 
+const MTDPlaceholder = () => (
+  <div className="pm-screen">
+    <div className="pm-screen-topbar">
+      <span className="pm-screen-dot" /><span className="pm-screen-dot" /><span className="pm-screen-dot" />
+    </div>
+    <div className="pm-screen-body">
+      <div className="pm-mtd-header">
+        <span className="pm-tax-label">VAT Return — Q2 2026</span>
+        <div className="pm-mtd-status">
+          <span className="pm-chip pm-chip-green">MTD Compliant</span>
+        </div>
+      </div>
+      <div className="pm-mtd-rows">
+        {[
+          { label: 'VAT due on sales (Box 1)', val: '£4,820.00' },
+          { label: 'VAT reclaimed on purchases (Box 4)', val: '£1,240.00' },
+          { label: 'Net VAT payable', val: '£3,580.00', bold: true },
+          { label: 'Total value of sales (Box 6)', val: '£24,100.00' },
+        ].map((r) => (
+          <div className="pm-mtd-row" key={r.label}>
+            <span className="pm-mtd-row-label">{r.label}</span>
+            <span className={`pm-mtd-row-val ${r.bold ? 'pm-mtd-bold' : ''}`}>{r.val}</span>
+          </div>
+        ))}
+      </div>
+      <div className="pm-mtd-footer">
+        <div className="pm-mtd-receipts">
+          <span className="pm-mtd-receipts-label">Receipts stored</span>
+          <span className="pm-mtd-receipts-count">147</span>
+        </div>
+        <button className="pm-btn-primary pm-mtd-submit">Submit to HMRC →</button>
+      </div>
+    </div>
+  </div>
+);
+
 const sections = [
   {
     eyebrow: 'Cash Flow',
@@ -224,11 +260,23 @@ const sections = [
     title: 'Always know what you owe',
     bullets: [
       'Running tax bill estimate updated with every transaction',
-      'VAT auto-detected and ring-fenced',
+      'VAT auto-detected and ring-fenced — 20%, 5% or 0% applied correctly every time',
       'HMRC-ready and Making Tax Digital compatible',
     ],
     placeholder: <TaxPlaceholder />,
     flip: false,
+  },
+  {
+    eyebrow: 'Making Tax Digital',
+    title: 'Submit VAT returns directly to HMRC',
+    bullets: [
+      'Fully MTD compliant — store digital VAT receipts as required by HMRC',
+      'One-click VAT return submission directly through the Arcadeus platform',
+      'Auto-populated VAT boxes using your real transaction data — no manual entry',
+      'Covers MTD for VAT (all VAT-registered businesses) and MTD for Income Tax from April 2026',
+    ],
+    placeholder: <MTDPlaceholder />,
+    flip: true,
   },
 ];
 

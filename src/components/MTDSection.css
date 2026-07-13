@@ -1,0 +1,217 @@
+.mtd-section {
+  background: var(--bg-light);
+  padding: 100px 4%;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.mtd-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* ── Top split ──────────────────────────────── */
+.mtd-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.mtd-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.38);
+  margin: 0 0 18px;
+}
+
+.mtd-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  color: #0D0D0D;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.mtd-body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.52);
+  margin: 0 0 28px;
+  max-width: 480px;
+}
+
+.mtd-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mtd-badge {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 2px;
+  color: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.03);
+}
+
+/* ── Card visual ────────────────────────────── */
+.mtd-card {
+  background: #0D0D0D;
+  border-radius: 8px;
+  padding: 32px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.mtd-card-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin: 0 0 20px;
+}
+
+.mtd-card-rows {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.mtd-card-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  background: #141414;
+}
+
+.mtd-card-row:last-child { border-bottom: none; }
+
+.mtd-card-row--total {
+  color: #ffffff;
+  font-weight: 600;
+  background: #1a1a1a;
+}
+
+.mtd-card-btn {
+  display: block;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  background: #ffffff;
+  color: #0D0D0D;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  cursor: default;
+  margin-bottom: 12px;
+}
+
+.mtd-card-note {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Divider ────────────────────────────────── */
+.mtd-divider {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ── VAT rates ──────────────────────────────── */
+.mtd-rates-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: -32px;
+}
+
+.mtd-rates-note {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(0,0,0,0.38);
+  margin: 0;
+}
+
+.mtd-rates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.mtd-rate-card {
+  background: var(--bg-light);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.2s ease;
+}
+
+.mtd-rate-card:hover {
+  background: rgba(0,0,0,0.025);
+}
+
+.mtd-rate-pct {
+  font-family: var(--font-serif);
+  font-size: 56px;
+  font-weight: 600;
+  color: #0D0D0D;
+  line-height: 1;
+}
+
+.mtd-rate-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.55);
+  letter-spacing: 0.02em;
+}
+
+.mtd-rate-examples {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(0,0,0,0.38);
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 900px) {
+  .mtd-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .mtd-rates {
+    grid-template-columns: 1fr;
+  }
+  .mtd-rates-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mtd-section { padding: 72px 5%; }
+}
