@@ -21,7 +21,7 @@
 
 .pmodal-panel {
   position: relative;
-  background: #ffffff;
+  background: #F0EFEB;
   min-height: 100%;
   width: 100%;
   padding: 56px 4% 80px;
@@ -99,13 +99,13 @@
 }
 
 .pmodal-card {
-  background: #ffffff;
+  background: #F0EFEB;
   padding: 36px 32px;
   transition: background 0.2s ease;
 }
 
 .pmodal-card:hover {
-  background: #f5f5f5;
+  background: #e8e7e3;
 }
 
 .pmodal-icon {
@@ -142,7 +142,7 @@
   font-weight: 500;
   text-decoration: none;
   background: #0D0D0D;
-  color: #ffffff;
+  color: #F0EFEB;
   padding: 14px 32px;
   border-radius: 4px;
   transition: background 0.2s ease;

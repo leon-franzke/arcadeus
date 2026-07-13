@@ -21,7 +21,7 @@
 
 .fmodal-panel {
   position: relative;
-  background: #ffffff;
+  background: #F0EFEB;
   min-height: 100%;
   width: 100%;
   padding: 56px 4% 80px;
@@ -160,7 +160,7 @@
   font-family: var(--font-serif);
   font-size: 26px;
   font-weight: 600;
-  color: #ffffff;
+  color: #F0EFEB;
   margin: 0 0 16px;
   line-height: 1.2;
 }
@@ -180,7 +180,7 @@
   font-weight: 500;
   text-decoration: none;
   text-align: center;
-  background: #ffffff;
+  background: #F0EFEB;
   color: #0D0D0D;
   padding: 13px 20px;
   border-radius: 4px;
