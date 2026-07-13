@@ -14,15 +14,16 @@ const Header = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const theme = scrolled ? 'light' : 'dark';
+  const theme = (scrolled || modal) ? 'light' : 'dark';
   const openModal = (name) => (e) => { e.preventDefault(); setModal(name); };
   const closeModal = () => setModal(null);
+  const onLogoClick = () => { if (modal) closeModal(); };
 
   return (
     <>
       <header className={`header ${theme}`}>
         <div className="header-inner">
-          <span className="header-logo">Arcadeus</span>
+          <span className="header-logo" onClick={onLogoClick} style={{ cursor: modal ? 'pointer' : 'default' }}>Arcadeus</span>
 
           <ul className="header-nav">
             <li><a href="#product" onClick={openModal('product')}>Product</a></li>

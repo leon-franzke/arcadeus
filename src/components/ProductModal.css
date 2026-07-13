@@ -1,7 +1,10 @@
 .pmodal-backdrop {
   position: fixed;
-  inset: 0;
-  z-index: 200;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: flex-start;
@@ -19,9 +22,9 @@
 .pmodal-panel {
   position: relative;
   background: #F4F3EF;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
-  padding: 100px 4% 80px;
+  padding: 56px 4% 80px;
   animation: pmodal-slide-up 0.3s ease;
 }
 
@@ -31,7 +34,7 @@
 }
 
 .pmodal-close {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 4%;
   background: none;
@@ -46,7 +49,6 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  z-index: 201;
 }
 
 .pmodal-close:hover {
