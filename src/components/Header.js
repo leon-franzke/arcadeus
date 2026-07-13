@@ -24,7 +24,7 @@ const Header = () => {
       <header className={`header ${theme}`}>
         <a
           className="header-banner"
-          href="https://www.gov.uk/guidance/check-when-you-can-sign-up-for-making-tax-digital-for-income-tax"
+          href="https://makingtaxdigital.campaign.gov.uk/"
           target="_blank"
           rel="noopener noreferrer"
         >
