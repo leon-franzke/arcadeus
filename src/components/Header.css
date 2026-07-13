@@ -19,8 +19,16 @@
   background: #0D0D0D;
   text-decoration: none;
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  transition: background 0.2s ease;
-  flex-wrap: wrap;
+  overflow: hidden;
+  transition: height 0.3s ease, opacity 0.3s ease, background 0.2s ease;
+  opacity: 1;
+}
+
+.header--banner-gone .header-banner {
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  border-bottom: none;
 }
 
 .header-banner:hover {

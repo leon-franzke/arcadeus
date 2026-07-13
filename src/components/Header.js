@@ -4,12 +4,25 @@ import ProductModal from './ProductModal';
 import PricingModal from './PricingModal';
 import FAQModal from './FAQModal';
 
+const BANNER_H = 40;
+const NAV_H = 64;
+
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [modal, setModal] = useState(null); // 'product' | 'pricing' | 'faq' | null
+  const [bannerGone, setBannerGone] = useState(false);
+  const [modal, setModal] = useState(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.8);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setBannerGone(y > BANNER_H);
+      setScrolled(y > window.innerHeight * 0.8);
+      document.documentElement.style.setProperty(
+        '--modal-top',
+        y > BANNER_H ? `${NAV_H}px` : `${BANNER_H + NAV_H}px`
+      );
+    };
+    document.documentElement.style.setProperty('--modal-top', `${BANNER_H + NAV_H}px`);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -21,7 +34,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={`header ${theme}`}>
+      <header className={`header ${theme} ${bannerGone ? 'header--banner-gone' : ''}`}>
         <a
           className="header-banner"
           href="https://makingtaxdigital.campaign.gov.uk/"
