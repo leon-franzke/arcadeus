@@ -42,23 +42,25 @@
 }
 
 .hero-hmrc {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 20px;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px;
+  background: rgba(255,255,255,0.04);
+  line-height: 1.4;
 }
 
-.hero-hmrc-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #4ade80;
+.hero-hmrc-check {
+  color: #4ade80;
+  font-size: 14px;
+  font-weight: 600;
   flex-shrink: 0;
 }
 

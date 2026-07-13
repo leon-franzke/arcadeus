@@ -6,10 +6,10 @@ const Hero = () => (
     <div className="hero-bg" />
     <div className="hero-content">
       <h1 className="hero-title">Finance Made Perfect</h1>
-      <p className="hero-hmrc">
-        <span className="hero-hmrc-dot" />
-        HMRC compliant · Making Tax Digital ready
-      </p>
+      <div className="hero-hmrc">
+        <span className="hero-hmrc-check">✓</span>
+        HMRC recognised &amp; Making Tax Digital compliant — submit VAT returns directly from Arcadeus
+      </div>
       <p className="hero-subtitle">
         The most ambitious UK businesses trust Arcadeus to manage their finances and navigate complexity.
       </p>
