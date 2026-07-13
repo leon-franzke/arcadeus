@@ -1,0 +1,236 @@
+.prmodal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  animation: prmodal-fade-in 0.2s ease;
+  overflow-y: auto;
+  padding: 0;
+}
+
+@keyframes prmodal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.prmodal-panel {
+  position: relative;
+  background: #0D0D0D;
+  min-height: 100vh;
+  width: 100%;
+  padding: 100px 4% 80px;
+  animation: prmodal-slide-up 0.3s ease;
+}
+
+@keyframes prmodal-slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.prmodal-close {
+  position: fixed;
+  top: 20px;
+  right: 4%;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 201;
+}
+
+.prmodal-close:hover {
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.5);
+}
+
+.prmodal-header {
+  max-width: 500px;
+  margin-bottom: 64px;
+}
+
+.prmodal-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin: 0 0 16px;
+}
+
+.prmodal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.prmodal-subtitle {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+}
+
+.prmodal-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.prmodal-tier {
+  position: relative;
+  background: #0D0D0D;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.prmodal-tier--featured {
+  background: #141414;
+}
+
+.prmodal-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0D0D0D;
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+  align-self: flex-start;
+}
+
+.prmodal-tier-name {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin: 0 0 12px;
+}
+
+.prmodal-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.prmodal-price {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.prmodal-period {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+}
+
+.prmodal-tier-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.4);
+  margin: 0 0 28px;
+}
+
+.prmodal-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  flex: 1;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+}
+
+.prmodal-features li {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.prmodal-check {
+  color: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.prmodal-cta {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.75);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.prmodal-cta:hover {
+  border-color: rgba(255,255,255,0.5);
+  color: #ffffff;
+}
+
+.prmodal-cta--featured {
+  background: #ffffff;
+  color: #0D0D0D;
+  border-color: #ffffff;
+}
+
+.prmodal-cta--featured:hover {
+  background: rgba(255,255,255,0.88);
+  color: #0D0D0D;
+}
+
+.prmodal-note {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  text-align: center;
+  margin: 40px 0 0;
+}
+
+@media (max-width: 900px) {
+  .prmodal-tiers { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .prmodal-panel { padding: 80px 20px 60px; }
+  .prmodal-close { right: 20px; }
+}

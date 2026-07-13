@@ -1,0 +1,157 @@
+.pmodal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  animation: pmodal-fade-in 0.2s ease;
+  overflow-y: auto;
+  padding: 0;
+}
+
+@keyframes pmodal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.pmodal-panel {
+  position: relative;
+  background: #F4F3EF;
+  min-height: 100vh;
+  width: 100%;
+  padding: 100px 4% 80px;
+  animation: pmodal-slide-up 0.3s ease;
+}
+
+@keyframes pmodal-slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.pmodal-close {
+  position: fixed;
+  top: 20px;
+  right: 4%;
+  background: none;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 201;
+}
+
+.pmodal-close:hover {
+  background: rgba(0,0,0,0.06);
+  color: #0D0D0D;
+  border-color: rgba(0,0,0,0.4);
+}
+
+.pmodal-header {
+  max-width: 600px;
+  margin-bottom: 64px;
+}
+
+.pmodal-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  margin: 0 0 16px;
+}
+
+.pmodal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 600;
+  color: #0D0D0D;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.pmodal-subtitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.55);
+  margin: 0;
+  max-width: 480px;
+}
+
+.pmodal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.pmodal-card {
+  background: #F4F3EF;
+  padding: 36px 32px;
+  transition: background 0.2s ease;
+}
+
+.pmodal-card:hover {
+  background: #eceae4;
+}
+
+.pmodal-icon {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.pmodal-card-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: #0D0D0D;
+  margin: 0 0 10px;
+}
+
+.pmodal-card-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.55);
+  margin: 0;
+}
+
+.pmodal-footer {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.pmodal-cta {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  background: #0D0D0D;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.pmodal-cta:hover {
+  background: #333;
+}
+
+@media (max-width: 768px) {
+  .pmodal-panel { padding: 80px 20px 60px; }
+  .pmodal-close { right: 20px; }
+  .pmodal-grid { grid-template-columns: 1fr; }
+}

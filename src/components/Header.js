@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Header.css';
+import ProductModal from './ProductModal';
+import PricingModal from './PricingModal';
+import FAQModal from './FAQModal';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [modal, setModal] = useState(null); // 'product' | 'pricing' | 'faq' | null
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.8);
@@ -11,24 +15,32 @@ const Header = () => {
   }, []);
 
   const theme = scrolled ? 'light' : 'dark';
+  const openModal = (name) => (e) => { e.preventDefault(); setModal(name); };
+  const closeModal = () => setModal(null);
 
   return (
-    <header className={`header ${theme}`}>
-      <div className="header-inner">
-        <span className="header-logo">Arcadeus</span>
+    <>
+      <header className={`header ${theme}`}>
+        <div className="header-inner">
+          <span className="header-logo">Arcadeus</span>
 
-        <ul className="header-nav">
-          <li><a href="#product">Product</a></li>
-          <li><a href="#why">Why Arcadeus</a></li>
-          <li><a href="#security">Security</a></li>
-        </ul>
+          <ul className="header-nav">
+            <li><a href="#product" onClick={openModal('product')}>Product</a></li>
+            <li><a href="#pricing" onClick={openModal('pricing')}>Pricing</a></li>
+            <li><a href="#faq" onClick={openModal('faq')}>FAQ</a></li>
+          </ul>
 
-        <div className="header-actions">
-          <a href="https://app.arcadeus.ai" className="header-login">Log In</a>
-          <a href="https://app.arcadeus.ai" className="header-cta">Get Early Access</a>
+          <div className="header-actions">
+            <a href="https://app.arcadeus.ai" className="header-login">Log In</a>
+            <a href="https://app.arcadeus.ai" className="header-cta">Get Early Access</a>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {modal === 'product' && <ProductModal onClose={closeModal} />}
+      {modal === 'pricing' && <PricingModal onClose={closeModal} />}
+      {modal === 'faq'     && <FAQModal     onClose={closeModal} />}
+    </>
   );
 };
 
