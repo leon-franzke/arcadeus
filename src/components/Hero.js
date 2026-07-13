@@ -3,7 +3,15 @@ import './Hero.css';
 
 const Hero = () => (
   <section className="hero">
-    <div className="hero-bg" />
+    <video
+      className="hero-video"
+      src="/hero.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+    />
+    <div className="hero-overlay" />
     <div className="hero-content">
       <h1 className="hero-title">Finance Made Perfect</h1>
       <div className="hero-hmrc">
