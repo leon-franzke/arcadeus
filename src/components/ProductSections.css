@@ -138,22 +138,28 @@
 
 .ps-sticky-right {
   width: 45%;
-  padding: 0 6% 0 32px;
+  position: relative;
 }
 
-/* ── Feature sections ── */
-.ps-feature {
-  min-height: 100vh;
+/* Sticky text panel — same position, content swaps */
+.ps-sticky-text {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: 14vh;
-  opacity: 0.28;
-  transition: opacity 0.4s ease;
+  padding: 0 6% 14vh 32px;
+  pointer-events: none;
 }
 
-.ps-feature--active {
-  opacity: 1;
+.ps-feature-text {
+  pointer-events: auto;
+}
+
+/* Invisible scroll drivers — create scroll distance per feature */
+.ps-scroll-driver {
+  min-height: 100vh;
 }
 
 .ps-eyebrow {

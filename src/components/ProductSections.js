@@ -541,16 +541,30 @@ const StickySection = () => {
         </AnimatePresence>
       </div>
       <div className="ps-sticky-right">
+        {/* Sticky text — stays put, content swaps */}
+        <div className="ps-sticky-text">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              className="ps-feature-text"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <p className="ps-eyebrow">{FEATURES[activeIndex].eyebrow}</p>
+              <h2 className="ps-word">{FEATURES[activeIndex].word}</h2>
+              <p className="ps-desc">{FEATURES[activeIndex].desc}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        {/* Invisible scroll drivers — one per feature to trigger IntersectionObserver */}
         {FEATURES.map((f, i) => (
           <div
             key={f.word}
             ref={(el) => (sectionRefs.current[i] = el)}
-            className={`ps-feature ${activeIndex === i ? 'ps-feature--active' : ''}`}
-          >
-            <p className="ps-eyebrow">{f.eyebrow}</p>
-            <h2 className="ps-word">{f.word}</h2>
-            <p className="ps-desc">{f.desc}</p>
-          </div>
+            className="ps-scroll-driver"
+          />
         ))}
       </div>
     </div>
