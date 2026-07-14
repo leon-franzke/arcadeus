@@ -129,21 +129,34 @@ const EcosystemMap = () => {
         />
       ))}
 
-      {/* radar ping rings — opacity-only, no transforms (Safari safe) */}
+      {/* grey fill halo — pulses behind the box */}
       <motion.rect
-        x={CX - 62} y={CY - 34}
-        width={124} height={68} rx={14}
-        fill="none" stroke="rgba(0,0,0,0.28)" strokeWidth="1.5"
-        animate={inView ? { opacity: [0, 0.8, 0] } : { opacity: 0 }}
-        transition={{ duration: 2, ease: 'easeOut', repeat: Infinity, delay: 0.8 }}
+        x={CX - 74} y={CY - 46}
+        width={148} height={92} rx={20}
+        fill="rgba(0,0,0,0.055)"
+        animate={inView ? { opacity: [0.2, 1, 0.2] } : { opacity: 0 }}
+        transition={{ duration: 2.6, ease: 'easeInOut', repeat: Infinity, delay: 0.6 }}
       />
-      <motion.rect
-        x={CX - 62} y={CY - 34}
-        width={124} height={68} rx={14}
-        fill="none" stroke="rgba(0,0,0,0.16)" strokeWidth="1.5"
-        animate={inView ? { opacity: [0, 0.5, 0] } : { opacity: 0 }}
-        transition={{ duration: 2, ease: 'easeOut', repeat: Infinity, delay: 1.8 }}
-      />
+
+      {/* expanding outline rings — 3 pre-sized rects fade in sequence,
+          creating the illusion of outward movement without transforms */}
+      {[
+        { s: 1.28, delay: 0.8,  opacity: [0, 0.55, 0] },
+        { s: 1.62, delay: 1.05, opacity: [0, 0.35, 0] },
+        { s: 1.96, delay: 1.3,  opacity: [0, 0.18, 0] },
+      ].map(({ s, delay, opacity }, i) => (
+        <motion.rect
+          key={`ring-${i}`}
+          x={CX - 62 * s} y={CY - 34 * s}
+          width={124 * s} height={68 * s}
+          rx={14 * s}
+          fill="none"
+          stroke="rgba(0,0,0,0.7)"
+          strokeWidth="1"
+          animate={inView ? { opacity } : { opacity: 0 }}
+          transition={{ duration: 2.2, ease: 'easeOut', repeat: Infinity, repeatDelay: 0.6, delay }}
+        />
+      ))}
 
       {/* centre Arcadeus AI node */}
       <motion.g
