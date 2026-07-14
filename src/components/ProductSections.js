@@ -517,6 +517,10 @@ const StickySection = () => {
   const ActiveCard = CARDS[activeIndex];
 
   useEffect(() => {
+    document.title = `Arcadeus — ${FEATURES[activeIndex].eyebrow}`;
+  }, [activeIndex]);
+
+  useEffect(() => {
     const observers = sectionRefs.current.map((el, i) => {
       if (!el) return null;
       const obs = new IntersectionObserver(

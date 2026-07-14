@@ -1,0 +1,222 @@
+.smodal-backdrop {
+  position: fixed;
+  top: var(--modal-top, 104px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  animation: smodal-fade-in 0.2s ease;
+  overflow-y: auto;
+  padding: 0;
+}
+
+@keyframes smodal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.smodal-panel {
+  position: relative;
+  background: #F3F4EF;
+  min-height: 100%;
+  width: 100%;
+  padding: 56px 4% 80px;
+  animation: smodal-slide-up 0.3s ease;
+}
+
+@keyframes smodal-slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.smodal-close {
+  position: absolute;
+  top: 20px;
+  right: 4%;
+  background: none;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.smodal-close:hover {
+  background: rgba(0,0,0,0.06);
+  color: #0D0D0D;
+  border-color: rgba(0,0,0,0.4);
+}
+
+.smodal-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 80px;
+  align-items: start;
+}
+
+.smodal-header {
+  margin-bottom: 48px;
+}
+
+.smodal-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  margin: 0 0 16px;
+}
+
+.smodal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  color: #0D0D0D;
+  line-height: 1.1;
+  margin: 0 0 24px;
+}
+
+.smodal-intro {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(0,0,0,0.55);
+  max-width: 580px;
+  margin: 0;
+}
+
+/* Pillars */
+.smodal-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.smodal-pillar {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.smodal-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.smodal-pillar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0D0D0D;
+  flex-shrink: 0;
+}
+
+.smodal-pillar-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: #0D0D0D;
+  margin: 0;
+}
+
+.smodal-pillar-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.55);
+  margin: 0;
+  padding-left: 19px;
+  max-width: 580px;
+}
+
+/* Sidebar */
+.smodal-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.smodal-contact-card {
+  background: #0D0D0D;
+  padding: 36px;
+  border-radius: 4px;
+}
+
+.smodal-contact-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin: 0 0 12px;
+}
+
+.smodal-contact-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: #F3F4EF;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.smodal-contact-body {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  margin: 0 0 28px;
+}
+
+.smodal-contact-btn {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  background: #F3F4EF;
+  color: #0D0D0D;
+  padding: 13px 20px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.smodal-contact-btn:hover {
+  background: rgba(255,255,255,0.88);
+}
+
+.smodal-contact-note {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .smodal-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .smodal-sidebar { position: static; }
+}
+
+@media (max-width: 768px) {
+  .smodal-panel { padding: 80px 20px 60px; }
+  .smodal-close { right: 20px; }
+}

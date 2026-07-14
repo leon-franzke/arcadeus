@@ -43,13 +43,16 @@ const Header = () => {
     const onDark = () => setDarkModal(true);
     const onLight = () => setDarkModal(false);
     const onPricing = () => setModal('pricing');
+    const onProduct = () => setModal('product');
     window.addEventListener('arcadeus:darkSection', onDark);
     window.addEventListener('arcadeus:lightSection', onLight);
     window.addEventListener('arcadeus:openPricing', onPricing);
+    window.addEventListener('arcadeus:openProduct', onProduct);
     return () => {
       window.removeEventListener('arcadeus:darkSection', onDark);
       window.removeEventListener('arcadeus:lightSection', onLight);
       window.removeEventListener('arcadeus:openPricing', onPricing);
+      window.removeEventListener('arcadeus:openProduct', onProduct);
     };
   }, []);
 

@@ -10,21 +10,33 @@ const Footer = ({ light }) => (
         <div>
           <p className="footer-col-title">Product</p>
           <ul className="footer-links">
-            <li><a href="https://app.arcadeus.ai">Dashboard</a></li>
-            <li><a href="https://app.arcadeus.ai">Invoices</a></li>
-            <li><a href="https://app.arcadeus.ai">Expenses</a></li>
-            <li><a href="https://app.arcadeus.ai">Tax</a></li>
-            <li><a href="https://app.arcadeus.ai">Reports</a></li>
+            {[
+              'Cash Flow',
+              'Invoice Automation',
+              'Expense Automation',
+              'AI Budget & Forecast',
+              'Customer Analysis',
+              'VAT & MTD Tracking',
+              'HMRC MTD Submission',
+            ].map((f) => (
+              <li key={f}>
+                <button
+                  className="footer-link-btn"
+                  onClick={() => window.dispatchEvent(new Event('arcadeus:openProduct'))}
+                >
+                  {f}
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
           <p className="footer-col-title">Company</p>
           <ul className="footer-links">
-            <li><a href="/#">About</a></li>
-            <li><a href="/#">Careers</a></li>
-            <li><a href="#security">Security</a></li>
-            <li><a href="/#">Privacy Policy</a></li>
+            <li><button className="footer-link-btn" onClick={() => window.dispatchEvent(new Event('arcadeus:about'))}>About</button></li>
+            <li><button className="footer-link-btn" onClick={() => window.dispatchEvent(new Event('arcadeus:security'))}>Security</button></li>
+            <li><button className="footer-link-btn" onClick={() => window.dispatchEvent(new Event('arcadeus:privacy'))}>Privacy Policy</button></li>
           </ul>
         </div>
 
