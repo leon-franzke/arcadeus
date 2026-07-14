@@ -20,11 +20,11 @@ const DIV_X  = BOX_R;
 
 /* nodes */
 const LEFT_NODES   = ['HSBC', 'Barclays', 'Monzo', 'Starling', 'Lloyds'];
-const RIGHT_NODES  = ['Stripe', 'Xero', 'QuickBooks', 'Square', 'GoCardless', 'Sage', 'Gusto'];
+const RIGHT_NODES  = ['Stripe', 'Xero', 'QuickBooks', 'Square', 'Sage', 'Gusto'];
 const BOTTOM_NODES = ['HMRC MTD Filing'];
 
 const LEFT_YS   = [-140, -70, 0, 70, 140].map(d => CY + d);
-const RIGHT_YS  = [-165, -110, -55, 0, 55, 110, 165].map(d => CY + d);
+const RIGHT_YS  = [-137, -82, -27, 27, 82, 137].map(d => CY + d);
 const BOTTOM_Y  = 390;
 const BOTTOM_XS = [CX];   // single centred pill
 
