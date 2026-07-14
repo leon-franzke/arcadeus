@@ -2,173 +2,228 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './WhySection.css';
 
-/* ── Connectivity mind map ─────────────────────── */
+/* ── layout constants ───────────────────────── */
+const W = 900, H = 420;
+const CX = 450, CY = 210;
+const NODE_W = 96, NODE_H = 34;
+const LX = 28;               // left node x origin
+const RX = W - LX - NODE_W; // right node x origin  = 776
+const CONV_X = CX - 62;     // = 388 — left edge of centre box
+const DIV_X  = CX + 62;     // = 512 — right edge of centre box
 
-const CX = 200;
-const CY = 150;
+const LEFT_NODES  = ['HSBC', 'Barclays', 'Monzo', 'Starling', 'Lloyds'];
+const RIGHT_NODES = ['Stripe', 'HMRC', 'Xero', 'QuickBooks'];
 
-// 10 nodes evenly spaced on an ellipse (rx=120, ry=92)
-const toRad = (deg) => (deg * Math.PI) / 180;
-const INTEGRATIONS = [
-  'Stripe', 'HMRC', 'HSBC', 'Lloyds', 'NatWest',
-  'Monzo', 'Barclays', 'Starling', 'Xero', 'QuickBooks',
-];
-const NODES = INTEGRATIONS.map((label, i) => {
-  const angle = i * 36; // 360 / 10
-  return {
-    label,
-    x: Math.round(CX + 120 * Math.sin(toRad(angle))),
-    y: Math.round(CY - 92  * Math.cos(toRad(angle))),
-  };
-});
+// 5 left nodes, 4 right nodes — compute Y positions independently
+const LEFT_YS  = [-140, -70, 0, 70, 140].map(d => CY + d);   // [70,140,210,280,350]
+const RIGHT_YS = [-112, -37, 37, 112].map(d => CY + d);        // [98,173,247,322]
 
-const ConnectivityMap = () => (
-  <svg viewBox="0 0 400 300" className="why-mindmap" aria-hidden="true">
-    <defs>
-      <linearGradient id="ctrGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#2a2a2a" />
-        <stop offset="100%" stopColor="#0e0e0e" />
-      </linearGradient>
-    </defs>
+/* bezier path helpers */
+const leftPath  = (y) =>
+  `M ${LX + NODE_W} ${y} C ${(LX + NODE_W + CONV_X) / 2} ${y} ${CONV_X} ${CY} ${CONV_X} ${CY}`;
+const rightPath = (y) =>
+  `M ${DIV_X} ${CY} C ${DIV_X} ${CY} ${(DIV_X + RX) / 2} ${y} ${RX} ${y}`;
 
-    {/* Connecting lines */}
-    {NODES.map((n, i) => (
+/* ── node pill ──────────────────────────────── */
+const NodePill = ({ label, x, y, delay, align = 'left' }) => (
+  <motion.g
+    initial={{ opacity: 0, x: align === 'left' ? -12 : 12 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] }}
+  >
+    <rect
+      x={x} y={y - NODE_H / 2}
+      width={NODE_W} height={NODE_H}
+      rx={NODE_H / 2}
+      fill="#ffffff"
+      stroke="rgba(0,0,0,0.1)"
+      strokeWidth="1"
+    />
+    <text
+      x={x + NODE_W / 2} y={y + 5}
+      textAnchor="middle"
+      fill="#0D0D0D"
+      fontSize="11.5"
+      fontFamily="Inter, sans-serif"
+      fontWeight="500"
+    >
+      {label}
+    </text>
+  </motion.g>
+);
+
+/* ── main diagram ───────────────────────────── */
+const EcosystemMap = () => (
+  <svg viewBox={`0 0 ${W} ${H}`} className="why-ecosystem-svg" aria-hidden="true">
+
+    {/* column labels */}
+    <text
+      x={LX + NODE_W / 2} y={30}
+      textAnchor="middle"
+      fill="rgba(0,0,0,0.28)"
+      fontSize="9" fontFamily="Inter, sans-serif"
+      fontWeight="600" letterSpacing="0.12em"
+    >
+      BANKS &amp; ACCOUNTS
+    </text>
+    <text
+      x={RX + NODE_W / 2} y={30}
+      textAnchor="middle"
+      fill="rgba(0,0,0,0.28)"
+      fontSize="9" fontFamily="Inter, sans-serif"
+      fontWeight="600" letterSpacing="0.12em"
+    >
+      TOOLS &amp; PLATFORMS
+    </text>
+
+    {/* connecting bezier lines — left */}
+    {LEFT_YS.map((y, i) => (
       <motion.path
-        key={n.label + '-line'}
-        d={`M ${CX} ${CY} L ${n.x} ${n.y}`}
-        stroke="rgba(255,255,255,0.14)"
-        strokeWidth="1"
+        key={`l-${i}`}
+        d={leftPath(y)}
         fill="none"
+        stroke="rgba(0,0,0,0.1)"
+        strokeWidth="1.5"
         initial={{ pathLength: 0, opacity: 0 }}
         whileInView={{ pathLength: 1, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.55, delay: 0.15 + i * 0.06, ease: 'easeOut' }}
+        transition={{ duration: 0.7, delay: 0.1 + i * 0.07, ease: 'easeOut' }}
       />
     ))}
 
-    {/* Outer nodes */}
-    {NODES.map((n, i) => {
-      const w = n.label.length * 6.8 + 20;
-      const h = 20;
-      return (
-        <motion.g
-          key={n.label}
-          style={{ transformOrigin: `${n.x}px ${n.y}px` }}
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.35, delay: 0.35 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <rect
-            x={n.x - w / 2} y={n.y - h / 2}
-            width={w} height={h}
-            rx={h / 2}
-            fill="rgba(255,255,255,0.06)"
-            stroke="rgba(255,255,255,0.22)"
-            strokeWidth="0.75"
-          />
-          <text
-            x={n.x} y={n.y + 4}
-            textAnchor="middle"
-            fill="rgba(255,255,255,0.75)"
-            fontSize="9"
-            fontFamily="Inter, sans-serif"
-            fontWeight="500"
-            letterSpacing="0.03"
-          >
-            {n.label}
-          </text>
-        </motion.g>
-      );
-    })}
+    {/* connecting bezier lines — right */}
+    {RIGHT_YS.map((y, i) => (
+      <motion.path
+        key={`r-${i}`}
+        d={rightPath(y)}
+        fill="none"
+        stroke="rgba(0,0,0,0.1)"
+        strokeWidth="1.5"
+        initial={{ pathLength: 0, opacity: 0 }}
+        whileInView={{ pathLength: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.45 + i * 0.07, ease: 'easeOut' }}
+      />
+    ))}
 
-    {/* Centre node — Arcadeus AI */}
+    {/* left node pills */}
+    {LEFT_NODES.map((label, i) => (
+      <NodePill
+        key={label}
+        label={label}
+        x={LX} y={LEFT_YS[i]}
+        delay={0.05 + i * 0.07}
+        align="left"
+      />
+    ))}
+
+    {/* right node pills */}
+    {RIGHT_NODES.map((label, i) => (
+      <NodePill
+        key={label}
+        label={label}
+        x={RX} y={RIGHT_YS[i]}
+        delay={0.5 + i * 0.07}
+        align="right"
+      />
+    ))}
+
+    {/* radar ping rings — behind the centre node, always visible once in view */}
     <motion.g
-      style={{ transformOrigin: `${CX}px ${CY}px` }}
-      initial={{ opacity: 0, scale: 0.6 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.01, delay: 0.55 }}
     >
       <rect
-        x={CX - 50} y={CY - 20}
-        width={100} height={40}
-        rx={8}
-        fill="url(#ctrGrad)"
-        stroke="rgba(255,255,255,0.38)"
-        strokeWidth="1.25"
+        className="why-arc-ping"
+        x={CX - 62} y={CY - 34}
+        width={124} height={68}
+        rx={14}
+        fill="none"
+        stroke="rgba(0,0,0,0.22)"
+        strokeWidth="1.5"
+      />
+      <rect
+        className="why-arc-ping why-arc-ping--2"
+        x={CX - 62} y={CY - 34}
+        width={124} height={68}
+        rx={14}
+        fill="none"
+        stroke="rgba(0,0,0,0.14)"
+        strokeWidth="1.5"
+      />
+    </motion.g>
+
+    {/* centre Arcadeus AI node */}
+    <motion.g
+      style={{ transformOrigin: `${CX}px ${CY}px` }}
+      initial={{ opacity: 0, scale: 0.75 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {/* main box */}
+      <rect
+        x={CX - 62} y={CY - 34}
+        width={124} height={68}
+        rx={14}
+        fill="#0D0D0D"
       />
       <text
-        x={CX} y={CY - 4}
+        x={CX} y={CY - 6}
         textAnchor="middle"
         fill="#ffffff"
-        fontSize="11"
+        fontSize="14"
         fontFamily="Inter, sans-serif"
         fontWeight="700"
-        letterSpacing="0.04"
+        letterSpacing="0.02em"
       >
         Arcadeus
       </text>
       <text
-        x={CX} y={CY + 10}
+        x={CX} y={CY + 12}
         textAnchor="middle"
         fill="rgba(255,255,255,0.45)"
-        fontSize="9"
+        fontSize="10"
         fontFamily="Inter, sans-serif"
         fontWeight="400"
-        letterSpacing="0.1"
+        letterSpacing="0.14em"
       >
-        AI
+        AI LAYER
       </text>
     </motion.g>
   </svg>
 );
 
-/* ── Cards ─────────────────────────────────────── */
-
-const CARDS = [
-  {
-    graphic: <ConnectivityMap />,
-    title: 'Connected to what matters',
-    body: 'Direct integrations with HMRC, major UK banks, Stripe, Xero and more — data flows in automatically, no manual entry required.',
-    bg: '#0D0D0D',
-  },
-  {
-    imageLabel: 'HMRC Compliance',
-    title: 'Always compliant',
-    body: 'HMRC-ready VAT returns, Self Assessment prep, and real-time tax estimates — built in from day one.',
-    bg: 'linear-gradient(135deg, #111827 0%, #1a2233 100%)',
-  },
-  {
-    imageLabel: 'Live Dashboard',
-    title: 'Know your numbers',
-    body: 'Live cash position, P&L, and runway in one view. No accountant needed for your weekly finance review.',
-    bg: 'linear-gradient(135deg, #0f1a14 0%, #1a2a20 100%)',
-  },
-];
-
+/* ── section ────────────────────────────────── */
 const WhySection = () => (
   <section className="why-section" id="why">
     <div className="why-inner">
-      <h2 className="why-heading">Why the top performers choose Arcadeus</h2>
-      <div className="why-cards">
-        {CARDS.map(({ graphic, imageLabel, title, body, bg }) => (
-          <div key={title} className="why-card">
-            <div className="why-card-image" style={{ background: bg }}>
-              {graphic
-                ? <div className="why-card-graphic">{graphic}</div>
-                : (
-                  <div className="why-card-image-inner">
-                    <span className="why-card-image-label">{imageLabel}</span>
-                  </div>
-                )
-              }
-            </div>
-            <h3 className="why-card-title">{title}</h3>
-            <p className="why-card-body">{body}</p>
-          </div>
-        ))}
+      <div className="why-header">
+        <motion.h2
+          className="why-heading"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          The AI layer for your financial ecosystem
+        </motion.h2>
+        <motion.p
+          className="why-subheading"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.12 }}
+        >
+          Arcadeus sits between your banks, tools and HMRC — pulling in data
+          automatically and giving you one intelligent view of your finances.
+        </motion.p>
       </div>
+
+      <EcosystemMap />
     </div>
   </section>
 );

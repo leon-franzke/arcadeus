@@ -1,89 +1,63 @@
 .why-section {
   background: var(--bg-light);
-  padding: 120px 0;
+  padding: 120px 0 100px;
 }
 
 .why-inner {
-  
-  
-  padding: 0 4%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.why-header {
+  text-align: center;
+  margin-bottom: 56px;
 }
 
 .why-heading {
   font-family: var(--font-serif);
-  font-size: clamp(28px, 3.5vw, 44px);
+  font-size: clamp(26px, 3.2vw, 42px);
   font-weight: 400;
   color: #0D0D0D;
-  margin-bottom: 64px;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
 }
 
-.why-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.why-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.why-card-image {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: #1a1a1a;
-  border-radius: 8px;
-  margin-bottom: 24px;
-  position: relative;
-  overflow: hidden;
-}
-
-.why-card-image-inner {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.why-card-image-label {
-  font-family: var(--font-serif);
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 0.04em;
-}
-
-.why-card-title {
+.why-subheading {
   font-family: var(--font-sans);
-  font-size: 17px;
-  font-weight: 600;
-  color: #0D0D0D;
-  margin-bottom: 10px;
-}
-
-.why-card-body {
-  font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: clamp(14px, 1.5vw, 16px);
   line-height: 1.65;
-  color: rgba(0,0,0,0.55);
+  color: rgba(0, 0, 0, 0.48);
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-.why-card-graphic {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.why-mindmap {
-  width: 100%;
-  height: 100%;
+/* ── ecosystem SVG diagram ─────────────────── */
+.why-ecosystem-svg {
   display: block;
+  width: 100%;
+  height: auto;
 }
 
-@media (max-width: 900px) {
+/* radar-ping rings on centre Arcadeus node */
+@keyframes arc-ping {
+  0%   { transform: scale(1);    opacity: 0.9; }
+  100% { transform: scale(1.65); opacity: 0;   }
+}
+
+.why-arc-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: arc-ping 2s ease-out infinite;
+}
+
+.why-arc-ping--2 {
+  animation-delay: 1s;
+}
+
+@media (max-width: 700px) {
+  .why-section { padding: 80px 0 60px; }
   .why-inner { padding: 0 24px; }
-  .why-cards { grid-template-columns: 1fr; }
+  .why-header { margin-bottom: 36px; }
+  .why-ecosystem-svg { min-height: 320px; }
 }
