@@ -15,7 +15,7 @@ const tiers = [
       'Basic tax estimates',
       'Email support',
     ],
-    cta: 'Get Started',
+    cta: 'Sign Up',
     highlight: false,
   },
   {
