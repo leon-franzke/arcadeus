@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  transition: background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
   border-bottom: 1px solid transparent;
 }
 
@@ -73,6 +73,22 @@
   border-bottom-color: rgba(0,0,0,0.08);
 }
 
+.header--modal {
+  border-bottom-color: transparent !important;
+}
+
+.header.dark-modal {
+  background: #0D0D0D;
+  border-bottom-color: transparent;
+}
+.header.dark-modal .header-logo { color: #ffffff; }
+.header.dark-modal .header-nav a { color: rgba(255,255,255,0.75); }
+.header.dark-modal .header-nav a:hover { color: #ffffff; }
+.header.dark-modal .header-login { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.25); }
+.header.dark-modal .header-login:hover { color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.header.dark-modal .header-cta { background: #ffffff; color: #0D0D0D; border-color: #ffffff; }
+.header.dark-modal .header-cta:hover { background: rgba(255,255,255,0.85); }
+
 .header-inner {
   
   
@@ -90,7 +106,7 @@
   letter-spacing: 0.02em;
   cursor: pointer;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.5s ease;
 }
 
 .header.dark .header-logo { color: #ffffff; }
@@ -108,7 +124,7 @@
   font-size: 14px;
   font-weight: 400;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.5s ease;
 }
 
 .header.dark .header-nav a { color: rgba(255,255,255,0.75); }
@@ -131,7 +147,7 @@
   padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   cursor: pointer;
   background: transparent;
 }
@@ -161,7 +177,7 @@
   padding: 8px 18px;
   border-radius: 4px;
   border: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   cursor: pointer;
 }
 

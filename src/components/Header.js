@@ -11,6 +11,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [bannerGone, setBannerGone] = useState(false);
   const [modal, setModal] = useState(null);
+  const [darkModal, setDarkModal] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -27,15 +28,40 @@ const Header = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const theme = (scrolled || modal) ? 'light' : 'dark';
+  useEffect(() => {
+    if (modal) {
+      document.documentElement.style.setProperty('--modal-top', `${NAV_H}px`);
+    } else {
+      document.documentElement.style.setProperty(
+        '--modal-top',
+        bannerGone ? `${NAV_H}px` : `${BANNER_H + NAV_H}px`
+      );
+    }
+  }, [modal, bannerGone]);
+
+  useEffect(() => {
+    const onDark = () => setDarkModal(true);
+    const onLight = () => setDarkModal(false);
+    const onPricing = () => setModal('pricing');
+    window.addEventListener('arcadeus:darkSection', onDark);
+    window.addEventListener('arcadeus:lightSection', onLight);
+    window.addEventListener('arcadeus:openPricing', onPricing);
+    return () => {
+      window.removeEventListener('arcadeus:darkSection', onDark);
+      window.removeEventListener('arcadeus:lightSection', onLight);
+      window.removeEventListener('arcadeus:openPricing', onPricing);
+    };
+  }, []);
+
+  const theme = (darkModal && modal) ? 'dark-modal' : (scrolled || modal) ? 'light' : 'dark';
   const openModal = (name) => (e) => { e.preventDefault(); setModal(name); };
-  const closeModal = () => setModal(null);
+  const closeModal = () => { setModal(null); setDarkModal(false); };
   const onLogoClick = () => { if (modal) closeModal(); };
 
   return (
     <>
-      <header className={`header ${theme} ${bannerGone ? 'header--banner-gone' : ''}`}>
-        <a
+      <header className={`header ${theme} ${bannerGone ? 'header--banner-gone' : ''} ${modal ? 'header--modal' : ''}`}>
+        {!modal && <a
           className="header-banner"
           href="https://makingtaxdigital.campaign.gov.uk/"
           target="_blank"
@@ -45,7 +71,7 @@ const Header = () => {
             MTD becomes mandatory for businesses with turnover over £30,000 from April 2027
           </span>
           <span className="header-banner-link">Read HMRC guidance →</span>
-        </a>
+        </a>}
         <div className="header-inner">
           <span className="header-logo" onClick={onLogoClick} style={{ cursor: modal ? 'pointer' : 'default' }}>Arcadeus</span>
 

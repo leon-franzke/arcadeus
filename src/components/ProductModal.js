@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './ProductModal.css';
+import ProductSections from './ProductSections';
 
 const DashboardPlaceholder = () => (
   <div className="pm-screen">
@@ -296,32 +297,7 @@ const ProductModal = ({ onClose }) => {
       <div className="pmodal-panel" onClick={(e) => e.stopPropagation()}>
         <button className="pmodal-close" onClick={onClose} aria-label="Close">✕</button>
 
-        <div className="pmodal-hero">
-          <p className="pmodal-eyebrow">The Platform</p>
-          <h2 className="pmodal-title">Everything you need<br />to run your finances</h2>
-          <p className="pmodal-subtitle">
-            Arcadeus replaces the spreadsheets, the chasing, and the guesswork with a single intelligent layer across your entire financial operation.
-          </p>
-        </div>
-
-        <div className="pmodal-sections">
-          {sections.map((s) => (
-            <div className={`pmodal-section ${s.flip ? 'pmodal-section--flip' : ''}`} key={s.eyebrow}>
-              <div className="pmodal-section-text">
-                <p className="pmodal-section-eyebrow">{s.eyebrow}</p>
-                <h3 className="pmodal-section-title">{s.title}</h3>
-                <ul className="pmodal-section-bullets">
-                  {s.bullets.map((b) => (
-                    <li key={b}><span className="pmodal-bullet-dash">—</span>{b}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="pmodal-section-visual">
-                {s.placeholder}
-              </div>
-            </div>
-          ))}
-        </div>
+        <ProductSections />
 
         <div className="pmodal-footer">
           <h3 className="pmodal-footer-title">Ready to take control of your finances?</h3>

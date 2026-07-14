@@ -1,98 +1,270 @@
-.product-sections {
-  background: var(--bg-dark);
-  padding: 40px 0 120px;
+.ps-root {
+  width: 100%;
 }
 
-.product-section {
-  
-  
-  padding: 80px 4%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+/* ── Hero (white background) ── */
+.ps-hero {
+  background: var(--bg-light);
+  padding: 100px 6% 0;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-.product-section:first-child {
-  border-top: none;
+.ps-hero-text {
+  text-align: center;
+  max-width: 680px;
+  margin-bottom: 64px;
 }
 
-.product-section.reversed .product-text { order: 2; }
-.product-section.reversed .product-visual { order: 1; }
-
-.product-text {}
-
-.product-label {
+.ps-hero-eyebrow {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
   margin-bottom: 20px;
 }
 
-.product-title {
+.ps-hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(36px, 4.5vw, 60px);
+  font-size: clamp(40px, 5.5vw, 68px);
   font-weight: 400;
-  color: #ffffff;
+  color: #0D0D0D;
   line-height: 1.1;
-  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
 }
 
-.product-body {
+.ps-hero-sub {
   font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 32px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.45);
 }
 
-.product-btn {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  color: #ffffff;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 10px 22px;
-  border-radius: 3px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+.ps-hero-laptop {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-.product-btn:hover {
-  border-color: rgba(255,255,255,0.7);
-  color: #ffffff;
+/* ── Laptop frame ── */
+.ps-laptop {
+  width: 100%;
+  position: relative;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.22));
 }
 
-.product-visual {
-  aspect-ratio: 16/11;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
+.ps-laptop-screen {
+  background: #1c1c1e;
+  border-radius: 14px 14px 0 0;
+  border: 10px solid #1c1c1e;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.ps-laptop-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 10px;
+  background: #1c1c1e;
+  border-radius: 0 0 10px 10px;
+  z-index: 2;
+}
+
+.ps-laptop-display {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: #f5f5f5;
+  position: relative;
+}
+
+.ps-laptop-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+
+.ps-laptop-hinge {
+  height: 5px;
+  background: linear-gradient(to bottom, #3a3a3a, #2a2a2a);
+}
+
+.ps-laptop-base {
+  height: 22px;
+  background: linear-gradient(to bottom, #2e2e2e, #252525);
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 4px;
+}
+
+.ps-laptop-foot {
+  width: 80px;
+  height: 5px;
+  background: #1c1c1e;
+  border-radius: 0 0 4px 4px;
+}
+
+/* ── Sticky scroll section (dark) ── */
+.ps-sticky-outer {
+  background: #0D0D0D;
+  display: flex;
+  position: relative;
+  padding-top: 80px;
+}
+
+.ps-sticky-left {
+  width: 55%;
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 60px 40px 60px 6%;
 }
 
-.product-visual-label {
+.ps-sticky-right {
+  width: 45%;
+  padding: 0 6% 0 40px;
+}
+
+/* ── Feature sections ── */
+.ps-feature {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 0;
+  opacity: 0.28;
+  transition: opacity 0.4s ease;
+}
+
+.ps-feature--active {
+  opacity: 1;
+}
+
+.ps-eyebrow {
   font-family: var(--font-sans);
-  font-size: 13px;
-  color: rgba(255,255,255,0.2);
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
 }
 
+.ps-word {
+  font-family: var(--font-serif);
+  font-size: clamp(64px, 7.5vw, 108px);
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.0;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.ps-desc {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.5);
+  max-width: 380px;
+}
+
+/* ── CTA section ── */
+.ps-cta {
+  background: var(--bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 200px 6%;
+  text-align: center;
+}
+
+.ps-cta-inner {
+  max-width: 580px;
+}
+
+.ps-cta-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  margin-bottom: 20px;
+}
+
+.ps-cta-title {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5.5vw, 66px);
+  font-weight: 400;
+  color: #0D0D0D;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.ps-cta-sub {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.45);
+  margin-bottom: 48px;
+}
+
+.ps-cta-btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  background: #0D0D0D;
+  color: #F3F4EF;
+  border: none;
+  padding: 16px 48px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.ps-cta-btn:hover {
+  background: #2a2a2a;
+}
+
+/* ── Responsive ── */
 @media (max-width: 900px) {
-  .product-section {
-    grid-template-columns: 1fr;
-    padding: 60px 24px;
-    gap: 40px;
+  .ps-sticky-outer {
+    flex-direction: column;
   }
-  .product-section.reversed .product-text { order: 1; }
-  .product-section.reversed .product-visual { order: 2; }
+
+  .ps-sticky-left {
+    width: 100%;
+    position: relative;
+    height: auto;
+    padding: 60px 6%;
+  }
+
+  .ps-sticky-right {
+    width: 100%;
+    padding: 0 6%;
+  }
+
+  .ps-feature {
+    min-height: 60vh;
+    opacity: 1;
+  }
 }

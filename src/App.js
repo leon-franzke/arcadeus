@@ -7,7 +7,6 @@ import FeatureScroll from './components/FeatureScroll';
 import ImpactStats from './components/ImpactStats';
 import Stats from './components/Stats';
 import WhySection from './components/WhySection';
-import ProductSections from './components/ProductSections';
 import SecuritySection from './components/SecuritySection';
 import MTDSection from './components/MTDSection';
 import BottomCTA from './components/BottomCTA';
@@ -68,7 +67,6 @@ function App() {
       <ImpactStats />
       <Stats />
       <WhySection />
-      <ProductSections />
       <SecuritySection />
       <MTDSection />
       <BottomCTA />

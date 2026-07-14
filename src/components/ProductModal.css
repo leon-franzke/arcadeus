@@ -18,7 +18,7 @@
 
 .pmodal-panel {
   position: relative;
-  background: #F3F4EF;
+  background: #0D0D0D;
   min-height: 100%;
   width: 100%;
   animation: pmodal-slide-up 0.3s ease;
@@ -34,12 +34,12 @@
   top: 28px;
   right: 4%;
   background: none;
-  border: 1px solid rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 50%;
   width: 36px;
   height: 36px;
   font-size: 13px;
-  color: rgba(0,0,0,0.45);
+  color: rgba(255,255,255,0.45);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -48,15 +48,15 @@
   z-index: 2;
 }
 .pmodal-close:hover {
-  background: rgba(0,0,0,0.06);
-  color: #0D0D0D;
-  border-color: rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
 }
 
 /* ── Hero ───────────────────────────────────── */
 .pmodal-hero {
   padding: 64px 4% 80px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 
 .pmodal-eyebrow {
@@ -65,7 +65,7 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.38);
+  color: rgba(255,255,255,0.35);
   margin: 0 0 18px;
 }
 
@@ -73,7 +73,7 @@
   font-family: var(--font-serif);
   font-size: clamp(38px, 5vw, 60px);
   font-weight: 600;
-  color: #0D0D0D;
+  color: #ffffff;
   line-height: 1.08;
   margin: 0 0 22px;
 }
@@ -82,7 +82,7 @@
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.65;
-  color: rgba(0,0,0,0.5);
+  color: rgba(255,255,255,0.45);
   max-width: 520px;
   margin: 0;
 }
@@ -712,14 +712,14 @@
   align-items: center;
   text-align: center;
   gap: 28px;
-  border-top: 1px solid rgba(0,0,0,0.08);
+  border-top: 1px solid rgba(255,255,255,0.07);
 }
 
 .pmodal-footer-title {
   font-family: var(--font-serif);
   font-size: clamp(28px, 3.5vw, 42px);
   font-weight: 600;
-  color: #0D0D0D;
+  color: #ffffff;
   margin: 0;
   line-height: 1.15;
 }
@@ -729,14 +729,14 @@
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
-  background: #0D0D0D;
-  color: #F3F4EF;
+  background: #ffffff;
+  color: #0D0D0D;
   padding: 14px 36px;
   border-radius: 4px;
   transition: background 0.2s ease;
 }
 
-.pmodal-cta:hover { background: #333; }
+.pmodal-cta:hover { background: #e0e0e0; }
 
 /* ── Responsive ─────────────────────────────── */
 @media (max-width: 900px) {
