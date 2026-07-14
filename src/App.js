@@ -8,60 +8,32 @@ import ImpactStats from './components/ImpactStats';
 import WhySection from './components/WhySection';
 import MTDSection from './components/MTDSection';
 import Footer from './components/Footer';
-import EarlyInterestModal from './components/EarlyInterestModal';
+import AboutModal from './components/AboutModal';
+import SecurityModal from './components/SecurityModal';
+import PrivacyModal from './components/PrivacyModal';
 
-const PREVIEW_KEY = 'arcadeus_preview';
-const PREVIEW_PASSWORD = 'ARCADEUS';
-
-function ComingSoon() {
-  return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      backgroundColor: '#0D0D0D',
-      fontFamily: "'Source Serif Pro', Georgia, serif",
-    }}>
-      <h1 style={{
-        fontSize: '28px',
-        fontWeight: '600',
-        color: '#ffffff',
-        letterSpacing: '0.04em',
-        marginBottom: '12px',
-      }}>Arcadeus</h1>
-      <p style={{
-        fontSize: '14px',
-        color: 'rgba(255,255,255,0.4)',
-        letterSpacing: '0.08em',
-        textTransform: 'uppercase',
-        fontFamily: "'Inter', sans-serif",
-      }}>Coming soon</p>
-    </div>
-  );
-}
 
 function App() {
-  const [unlocked, setUnlocked] = useState(false);
-  const [showInterest, setShowInterest] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [showSecurity, setShowSecurity] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('preview') === PREVIEW_PASSWORD) {
-      localStorage.setItem(PREVIEW_KEY, '1');
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-    if (localStorage.getItem(PREVIEW_KEY) === '1') setUnlocked(true);
-  }, []);
-
-  useEffect(() => {
-    const onSignUp = () => setShowInterest(true);
+    const onSignUp = () => window.open('https://app.arcadeus.ai?mode=signup', '_blank');
+    const onAbout = () => setShowAbout(true);
+    const onSecurity = () => setShowSecurity(true);
+    const onPrivacy = () => setShowPrivacy(true);
     window.addEventListener('arcadeus:signUp', onSignUp);
-    return () => window.removeEventListener('arcadeus:signUp', onSignUp);
+    window.addEventListener('arcadeus:about', onAbout);
+    window.addEventListener('arcadeus:security', onSecurity);
+    window.addEventListener('arcadeus:privacy', onPrivacy);
+    return () => {
+      window.removeEventListener('arcadeus:signUp', onSignUp);
+      window.removeEventListener('arcadeus:about', onAbout);
+      window.removeEventListener('arcadeus:security', onSecurity);
+      window.removeEventListener('arcadeus:privacy', onPrivacy);
+    };
   }, []);
-
-  if (!unlocked) return <ComingSoon />;
 
   return (
     <div className="App">
@@ -73,7 +45,9 @@ function App() {
       <WhySection />
       <MTDSection />
       <Footer />
-      {showInterest && <EarlyInterestModal onClose={() => setShowInterest(false)} />}
+      {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
+      {showSecurity && <SecurityModal onClose={() => setShowSecurity(false)} />}
+      {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
     </div>
   );
 }
