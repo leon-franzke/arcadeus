@@ -13,9 +13,8 @@ const Hero = () => (
     />
     <div className="hero-overlay" />
     <div className="hero-content">
-      <h1 className="hero-title">Finance Made Perfect</h1>
+      <h1 className="hero-title">Your Finances, Finally in Order</h1>
       <div className="hero-hmrc">
-        <span className="hero-hmrc-check">✓</span>
         HMRC recognised &amp; Making Tax Digital compliant — submit VAT returns directly from Arcadeus
       </div>
       <p className="hero-subtitle">

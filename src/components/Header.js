@@ -42,7 +42,7 @@ const Header = () => {
           rel="noopener noreferrer"
         >
           <span className="header-banner-text">
-            MTD for Income Tax becomes mandatory for businesses with turnover over £30,000 from April 2027
+            MTD becomes mandatory for businesses with turnover over £30,000 from April 2027
           </span>
           <span className="header-banner-link">Read HMRC guidance →</span>
         </a>

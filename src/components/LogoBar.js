@@ -1,7 +1,7 @@
 import React from 'react';
 import './LogoBar.css';
 
-const LOGOS = ['BRIGHTFIELD', 'KOVA STUDIO', 'NORTHVEIL', 'SUMMIT & CO', 'ALDERTON GROUP', 'HARBOUR LANE', 'MERIDIAN CO', 'VELA WORKS'];
+const LOGOS = ['HSBC', 'Stripe', 'Barclays', 'Monzo', 'Starling', 'Xero', 'QuickBooks', 'HMRC', 'NatWest', 'Lloyds'];
 
 const LogoBar = () => (
   <div className="logo-bar">
