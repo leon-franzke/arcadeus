@@ -20,27 +20,21 @@ const EarlyInterestModal = ({ onClose }) => {
     setForm((f) => ({ ...f, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setStatus('submitting');
-    try {
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'early-interest',
-          'first-name': form.firstName,
-          'last-name': form.lastName,
-          'email': form.email,
-        }).toString(),
-        redirect: 'manual',
-      });
-      // Netlify returns 200, 204, or a manual redirect (opaqueredirect) on success
-      const ok = res.ok || res.type === 'opaqueredirect' || res.status === 0 || res.status === 302;
-      setStatus(ok ? 'success' : 'error');
-    } catch {
-      setStatus('error');
-    }
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        'form-name': 'early-interest',
+        'first-name': form.firstName,
+        'last-name': form.lastName,
+        'email': form.email,
+      }).toString(),
+    })
+      .then(() => setStatus('success'))
+      .catch(() => setStatus('error'));
   };
 
   return (
