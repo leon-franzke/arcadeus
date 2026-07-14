@@ -29,7 +29,7 @@ const NodePill = ({ label, x, y, delay, align = 'left' }) => (
   <motion.g
     initial={{ opacity: 0, x: align === 'left' ? -12 : 12 }}
     whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
+    viewport={{ once: true, amount: 0 }}
     transition={{ duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] }}
   >
     <rect
@@ -87,7 +87,7 @@ const EcosystemMap = () => (
         strokeWidth="1.5"
         initial={{ pathLength: 0, opacity: 0 }}
         whileInView={{ pathLength: 1, opacity: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.7, delay: 0.1 + i * 0.07, ease: 'easeOut' }}
       />
     ))}
@@ -102,7 +102,7 @@ const EcosystemMap = () => (
         strokeWidth="1.5"
         initial={{ pathLength: 0, opacity: 0 }}
         whileInView={{ pathLength: 1, opacity: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.7, delay: 0.45 + i * 0.07, ease: 'easeOut' }}
       />
     ))}
@@ -129,39 +129,38 @@ const EcosystemMap = () => (
       />
     ))}
 
-    {/* radar ping rings — behind the centre node, always visible once in view */}
-    <motion.g
+    {/* radar ping rings — Framer Motion keyframes, no CSS transforms (Safari safe) */}
+    <motion.rect
+      x={CX - 62} y={CY - 34}
+      width={124} height={68}
+      rx={14}
+      fill="none"
+      stroke="rgba(0,0,0,0.3)"
+      strokeWidth="1.5"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.01, delay: 0.55 }}
-    >
-      <rect
-        className="why-arc-ping"
-        x={CX - 62} y={CY - 34}
-        width={124} height={68}
-        rx={14}
-        fill="none"
-        stroke="rgba(0,0,0,0.22)"
-        strokeWidth="1.5"
-      />
-      <rect
-        className="why-arc-ping why-arc-ping--2"
-        x={CX - 62} y={CY - 34}
-        width={124} height={68}
-        rx={14}
-        fill="none"
-        stroke="rgba(0,0,0,0.14)"
-        strokeWidth="1.5"
-      />
-    </motion.g>
+      whileInView={{ opacity: [0, 0.8, 0] }}
+      viewport={{ once: false, amount: 0 }}
+      transition={{ duration: 2, ease: 'easeOut', repeat: Infinity, repeatDelay: 0, delay: 0.6 }}
+    />
+    <motion.rect
+      x={CX - 62} y={CY - 34}
+      width={124} height={68}
+      rx={14}
+      fill="none"
+      stroke="rgba(0,0,0,0.18)"
+      strokeWidth="1.5"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: [0, 0.5, 0] }}
+      viewport={{ once: false, amount: 0 }}
+      transition={{ duration: 2, ease: 'easeOut', repeat: Infinity, repeatDelay: 0, delay: 1.6 }}
+    />
 
     {/* centre Arcadeus AI node */}
     <motion.g
       style={{ transformOrigin: `${CX}px ${CY}px` }}
       initial={{ opacity: 0, scale: 0.75 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0 }}
       transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
     >
       {/* main box */}
@@ -206,7 +205,7 @@ const WhySection = () => (
           className="why-heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6 }}
         >
           The AI layer for your financial ecosystem
@@ -215,7 +214,7 @@ const WhySection = () => (
           className="why-subheading"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, delay: 0.12 }}
         >
           Arcadeus sits between your banks, tools and HMRC — pulling in data

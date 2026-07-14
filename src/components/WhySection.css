@@ -37,22 +37,7 @@
   display: block;
   width: 100%;
   height: auto;
-}
-
-/* radar-ping rings on centre Arcadeus node */
-@keyframes arc-ping {
-  0%   { transform: scale(1);    opacity: 0.9; }
-  100% { transform: scale(1.65); opacity: 0;   }
-}
-
-.why-arc-ping {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: arc-ping 2s ease-out infinite;
-}
-
-.why-arc-ping--2 {
-  animation-delay: 1s;
+  aspect-ratio: 900 / 420; /* Safari fix: prevents 0-height SVG */
 }
 
 @media (max-width: 700px) {
