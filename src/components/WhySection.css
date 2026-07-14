@@ -37,7 +37,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 900 / 420; /* Safari fix: prevents 0-height SVG */
+  aspect-ratio: 900 / 490; /* Safari fix: prevents 0-height SVG */
 }
 
 @media (max-width: 700px) {
