@@ -54,6 +54,15 @@
   color: #ffffff;
 }
 
+.footer-link-placeholder {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  cursor: default;
+}
+
+.footer--light .footer-link-placeholder { color: rgba(0,0,0,0.55); }
+
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.06);
   padding-top: 28px;
