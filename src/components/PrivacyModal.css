@@ -1,4 +1,4 @@
-.prmodal-backdrop {
+.pvmodal-backdrop {
   position: fixed;
   top: var(--modal-top, 104px);
   left: 0;
@@ -9,31 +9,31 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  animation: prmodal-fade-in 0.2s ease;
+  animation: pvmodal-fade-in 0.2s ease;
   overflow-y: auto;
   padding: 0;
 }
 
-@keyframes prmodal-fade-in {
+@keyframes pvmodal-fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-.prmodal-panel {
+.pvmodal-panel {
   position: relative;
   background: #F3F4EF;
   min-height: 100%;
   width: 100%;
   padding: 56px 4% 80px;
-  animation: prmodal-slide-up 0.3s ease;
+  animation: pvmodal-slide-up 0.3s ease;
 }
 
-@keyframes prmodal-slide-up {
+@keyframes pvmodal-slide-up {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.prmodal-close {
+.pvmodal-close {
   position: absolute;
   top: 20px;
   right: 4%;
@@ -51,17 +51,17 @@
   transition: all 0.2s ease;
 }
 
-.prmodal-close:hover {
+.pvmodal-close:hover {
   background: rgba(0,0,0,0.06);
   color: #0D0D0D;
   border-color: rgba(0,0,0,0.4);
 }
 
-.prmodal-inner {
+.pvmodal-inner {
   max-width: 680px;
 }
 
-.prmodal-eyebrow {
+.pvmodal-eyebrow {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
@@ -71,7 +71,7 @@
   margin: 0 0 16px;
 }
 
-.prmodal-title {
+.pvmodal-title {
   font-family: var(--font-serif);
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 600;
@@ -80,7 +80,7 @@
   margin: 0 0 16px;
 }
 
-.prmodal-meta {
+.pvmodal-meta {
   font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(0,0,0,0.35);
@@ -89,7 +89,7 @@
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.prmodal-intro {
+.pvmodal-intro {
   font-family: var(--font-sans);
   font-size: 15px;
   line-height: 1.75;
@@ -97,19 +97,19 @@
   margin: 0 0 36px;
 }
 
-.prmodal-section {
+.pvmodal-section {
   margin-bottom: 32px;
   padding-bottom: 32px;
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-.prmodal-section:last-child {
+.pvmodal-section:last-child {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-.prmodal-section-title {
+.pvmodal-section-title {
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 600;
@@ -119,7 +119,7 @@
   margin: 0 0 12px;
 }
 
-.prmodal-para {
+.pvmodal-para {
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.75;
@@ -127,7 +127,7 @@
   margin: 0;
 }
 
-.prmodal-list {
+.pvmodal-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -136,7 +136,7 @@
   gap: 10px;
 }
 
-.prmodal-list li {
+.pvmodal-list li {
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.7;
@@ -145,24 +145,24 @@
   position: relative;
 }
 
-.prmodal-list li::before {
+.pvmodal-list li::before {
   content: '·';
   position: absolute;
   left: 0;
   color: rgba(0,0,0,0.35);
 }
 
-.prmodal-link {
+.pvmodal-link {
   color: #0D0D0D;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.prmodal-link:hover {
+.pvmodal-link:hover {
   color: rgba(0,0,0,0.6);
 }
 
 @media (max-width: 768px) {
-  .prmodal-panel { padding: 80px 20px 60px; }
-  .prmodal-close { right: 20px; }
+  .pvmodal-panel { padding: 80px 20px 60px; }
+  .pvmodal-close { right: 20px; }
 }
