@@ -51,9 +51,10 @@
 }
 
 @media (max-width: 768px) {
+  .feature-scroll { padding: 72px 0; }
   .feature-scroll-inner {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
     padding: 0 20px;
   }
   .feature-scroll-item { font-size: 18px; }

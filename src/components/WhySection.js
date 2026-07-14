@@ -222,7 +222,9 @@ const WhySection = () => {
           </motion.p>
         </div>
 
-        <EcosystemMap />
+        <div className="why-ecosystem-wrapper">
+          <EcosystemMap />
+        </div>
       </div>
     </section>
   );

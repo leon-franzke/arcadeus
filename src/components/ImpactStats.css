@@ -74,9 +74,18 @@
 }
 
 @media (max-width: 768px) {
+  .impact {
+    padding: 80px 0;
+    min-height: auto;
+  }
   .impact-inner {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  .impact-stat {
+    gap: 16px;
+    padding: 24px 0;
   }
   .impact-stat-desc {
     text-align: left;

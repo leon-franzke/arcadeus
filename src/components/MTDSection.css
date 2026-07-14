@@ -216,5 +216,9 @@
 }
 
 @media (max-width: 600px) {
-  .mtd-section { padding: 72px 5%; }
+  .mtd-section { padding: 64px 5%; }
+  .mtd-rates-note { text-align: left; margin-left: 0; }
+  .mtd-rate-card { padding: 24px 20px; }
+  .mtd-rate-pct { font-size: 40px; }
+  .mtd-inner { gap: 40px; }
 }
