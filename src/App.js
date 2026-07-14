@@ -6,7 +6,6 @@ import LogoBar from './components/LogoBar';
 import FeatureScroll from './components/FeatureScroll';
 import ImpactStats from './components/ImpactStats';
 import WhySection from './components/WhySection';
-import SecuritySection from './components/SecuritySection';
 import MTDSection from './components/MTDSection';
 import Footer from './components/Footer';
 
@@ -64,7 +63,6 @@ function App() {
       <FeatureScroll />
       <ImpactStats />
       <WhySection />
-      <SecuritySection />
       <MTDSection />
       <Footer />
     </div>

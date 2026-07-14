@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './MTDSection.css';
 
 const vatRates = [
@@ -19,8 +19,23 @@ const vatRates = [
   },
 ];
 
-const MTDSection = () => (
-  <section className="mtd-section">
+const MTDSection = () => {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => window.dispatchEvent(new Event(
+        entry.isIntersecting ? 'arcadeus:darkSection' : 'arcadeus:lightSection'
+      )),
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+  <section className="mtd-section" ref={ref}>
     <div className="mtd-inner">
 
       <div className="mtd-top">
@@ -76,6 +91,7 @@ const MTDSection = () => (
 
     </div>
   </section>
-);
+  );
+};
 
 export default MTDSection;
