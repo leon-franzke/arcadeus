@@ -536,10 +536,10 @@ const StickySection = () => {
           <motion.div
             key={activeIndex}
             className="ps-card-shell"
-            initial={{ opacity: 0, filter: 'blur(8px)', y: 14 }}
-            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            exit={{ opacity: 0, filter: 'blur(6px)', y: -10 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
             <ActiveCard />
           </motion.div>
@@ -552,10 +552,10 @@ const StickySection = () => {
             <motion.div
               key={activeIndex}
               className="ps-feature-text"
-              initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
-              animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-              exit={{ opacity: 0, filter: 'blur(6px)', y: -6 }}
-              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
             >
               <p className="ps-eyebrow">{FEATURES[activeIndex].eyebrow}</p>
               <h2 className="ps-word">{FEATURES[activeIndex].word}</h2>
