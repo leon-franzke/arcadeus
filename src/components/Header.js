@@ -83,7 +83,7 @@ const Header = () => {
 
           <div className="header-actions">
             <a href="https://app.arcadeus.ai" className="header-login">Log In</a>
-            <a href="https://app.arcadeus.ai" className="header-cta">Get Early Access</a>
+            <a href="https://app.arcadeus.ai" className="header-cta">Sign Up</a>
           </div>
         </div>
       </header>

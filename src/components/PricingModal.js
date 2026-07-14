@@ -33,7 +33,7 @@ const tiers = [
       'Smart alerts',
       'Priority support',
     ],
-    cta: 'Get Early Access',
+    cta: 'Sign Up',
     highlight: true,
   },
   {
