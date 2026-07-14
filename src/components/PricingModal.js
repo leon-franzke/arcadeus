@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './PricingModal.css';
+import Footer from './Footer';
 
 const tiers = [
   {
@@ -110,6 +111,8 @@ const PricingModal = ({ onClose }) => {
         <p className="prmodal-note">
           All prices exclude VAT. Early access members lock in founding member rates permanently.
         </p>
+
+        <Footer />
       </div>
     </div>
   );

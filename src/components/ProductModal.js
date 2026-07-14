@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './ProductModal.css';
 import ProductSections from './ProductSections';
+import Footer from './Footer';
 
 const DashboardPlaceholder = () => (
   <div className="pm-screen">
@@ -299,10 +300,7 @@ const ProductModal = ({ onClose }) => {
 
         <ProductSections />
 
-        <div className="pmodal-footer">
-          <h3 className="pmodal-footer-title">Ready to take control of your finances?</h3>
-          <a href="https://app.arcadeus.ai" className="pmodal-cta">Get Early Access</a>
-        </div>
+        <Footer />
       </div>
     </div>
   );
