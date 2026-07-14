@@ -212,75 +212,6 @@ const MTDPlaceholder = () => (
   </div>
 );
 
-const sections = [
-  {
-    eyebrow: 'Cash Flow',
-    title: 'See your money in real time',
-    bullets: [
-      'Live dashboard of inflows, outflows and net position',
-      'Cash runway projections so you are never caught short',
-      'Instant alerts when balance drops below your threshold',
-    ],
-    placeholder: <DashboardPlaceholder />,
-    flip: false,
-  },
-  {
-    eyebrow: 'Receipt Capture',
-    title: 'Snap a receipt. Arcadeus does the rest',
-    bullets: [
-      'AI extracts merchant, amount, date and category instantly',
-      'Automatic VAT detection at the correct rate',
-      'One tap to approve — zero manual entry',
-    ],
-    placeholder: <ReceiptPlaceholder />,
-    flip: true,
-  },
-  {
-    eyebrow: 'Invoicing',
-    title: 'Create, send and chase invoices automatically',
-    bullets: [
-      'Professional invoices built in seconds',
-      'Automated follow-up sequences for overdue payments',
-      'Full pipeline from Draft through to Paid',
-    ],
-    placeholder: <InvoicePlaceholder />,
-    flip: false,
-  },
-  {
-    eyebrow: 'Bank Connections',
-    title: 'Every account, one place',
-    bullets: [
-      'Connect 10,000+ UK banks via Open Banking',
-      'Read-only, bank-grade secure — we never touch your funds',
-      'Transactions auto-categorised the moment they land',
-    ],
-    placeholder: <BankPlaceholder />,
-    flip: true,
-  },
-  {
-    eyebrow: 'Tax & VAT',
-    title: 'Always know what you owe',
-    bullets: [
-      'Running tax bill estimate updated with every transaction',
-      'VAT auto-detected and ring-fenced — 20%, 5% or 0% applied correctly every time',
-      'HMRC-ready and Making Tax Digital compatible',
-    ],
-    placeholder: <TaxPlaceholder />,
-    flip: false,
-  },
-  {
-    eyebrow: 'Making Tax Digital',
-    title: 'Submit VAT returns directly to HMRC',
-    bullets: [
-      'Fully MTD compliant — store digital VAT receipts as required by HMRC',
-      'One-click VAT return submission directly through the Arcadeus platform',
-      'Auto-populated VAT boxes using your real transaction data — no manual entry',
-      'Covers MTD for VAT (all VAT-registered businesses) and MTD for Income Tax from April 2026',
-    ],
-    placeholder: <MTDPlaceholder />,
-    flip: true,
-  },
-];
 
 const ProductModal = ({ onClose }) => {
   useEffect(() => {
@@ -290,6 +221,7 @@ const ProductModal = ({ onClose }) => {
     return () => {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
+      document.title = 'Arcadeus — The Financial Co-Pilot';
     };
   }, [onClose]);
 
