@@ -517,16 +517,21 @@ const StickySection = () => {
   const ActiveCard = CARDS[activeIndex];
 
   useEffect(() => {
-    const observers = sectionRefs.current.map((el, i) => {
-      if (!el) return null;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveIndex(i); },
-        { rootMargin: '-40% 0px -40% 0px' }
-      );
-      obs.observe(el);
-      return obs;
-    });
-    return () => observers.forEach((obs) => obs && obs.disconnect());
+    const handleScroll = () => {
+      const midY = window.innerHeight / 2;
+      let best = 0;
+      let bestDist = Infinity;
+      sectionRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const { top, height } = el.getBoundingClientRect();
+        const dist = Math.abs(top + height / 2 - midY);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      });
+      setActiveIndex(best);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
