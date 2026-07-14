@@ -33,6 +33,9 @@ const Footer = ({ light }) => (
           <ul className="footer-links">
             <li><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
             <li><a href="https://x.com" target="_blank" rel="noreferrer">X</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a></li>
+            <li><a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a></li>
+            <li><a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a></li>
           </ul>
         </div>
       </div>
