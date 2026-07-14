@@ -269,6 +269,14 @@
   gap: 0;
 }
 
+/* tag row — label left, Live badge right */
+.fc-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
 /* tag / eyebrow inside card */
 .fc-tag {
   font-size: 11px;
@@ -277,6 +285,32 @@
   text-transform: uppercase;
   color: rgba(0,0,0,0.35);
   margin-bottom: 14px;
+}
+
+/* Live flashing badge */
+.fc-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a7a4a;
+  animation: fc-flash 1.4s step-end infinite;
+}
+
+.fc-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1a7a4a;
+  flex-shrink: 0;
+}
+
+@keyframes fc-flash {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
 /* big number / hero amount */
@@ -288,22 +322,6 @@
   letter-spacing: -0.025em;
   line-height: 1.1;
   margin-bottom: 8px;
-}
-
-/* blinking cursor */
-.fc-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 0.85em;
-  background: #0D0D0D;
-  border-radius: 1px;
-  margin-left: 3px;
-  vertical-align: middle;
-  animation: fc-blink 1.1s step-end infinite;
-}
-@keyframes fc-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }
 
 /* subtitle under hero num */

@@ -42,10 +42,15 @@ const CashFlowCard = () => {
   const balance = useCounter(48240, 1600, 300);
   return (
     <div className="fc">
-      <Item delay={0} className="fc-tag">Live Cash Position</Item>
+      <Item delay={0} className="fc-tag-row">
+        <span className="fc-tag">Cash Position</span>
+        <span className="fc-live-badge">
+          <span className="fc-live-dot" />
+          Live
+        </span>
+      </Item>
       <Item delay={0.2} className="fc-hero-num">
         {fmt(balance)}
-        <span className="fc-cursor" />
       </Item>
       <Item delay={0.5} className="fc-hero-sub fc-up">↑ £3,120 vs last month</Item>
 
