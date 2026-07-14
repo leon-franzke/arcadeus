@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './SecuritySection.css';
 
 const complianceBadges = [
@@ -69,8 +69,26 @@ const securityBadges = [
   },
 ];
 
-const SecuritySection = () => (
-  <section className="security" id="security">
+const SecuritySection = () => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        window.dispatchEvent(new Event(
+          entry.isIntersecting ? 'arcadeus:darkSection' : 'arcadeus:lightSection'
+        ));
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+  <section className="security" id="security" ref={ref}>
     <div className="security-inner">
 
       <div className="security-top">
@@ -115,6 +133,7 @@ const SecuritySection = () => (
 
     </div>
   </section>
-);
+  );
+};
 
 export default SecuritySection;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './ImpactStats.css';
 
 const STATS = [
@@ -7,32 +7,51 @@ const STATS = [
   { value: '3×', unit: '', descriptor: 'faster than traditional bookkeeping' },
 ];
 
-const ImpactStats = () => (
-  <section className="impact">
-    <div className="impact-inner">
-      <div className="impact-text">
-        <p className="impact-para">
-          Managing business finances has never been more complex — but it doesn't have to be.
-          Businesses that adopt smart financial tools early gain clarity, confidence, and control.
-        </p>
-        <p className="impact-para">
-          Arcadeus gives growing UK businesses the financial intelligence that was previously
-          only available to large corporations with full CFO teams.
-        </p>
-      </div>
+const ImpactStats = () => {
+  const ref = useRef(null);
 
-      <div className="impact-stats">
-        {STATS.map(({ value, unit, descriptor }) => (
-          <div key={descriptor} className="impact-stat">
-            <div className="impact-stat-number">
-              {value}<span className="impact-stat-unit">{unit}</span>
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        window.dispatchEvent(new Event(
+          entry.isIntersecting ? 'arcadeus:darkSection' : 'arcadeus:lightSection'
+        ));
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section className="impact" ref={ref}>
+      <div className="impact-inner">
+        <div className="impact-text">
+          <p className="impact-para">
+            Managing business finances has never been more complex — but it doesn't have to be.
+            Businesses that adopt smart financial tools early gain clarity, confidence, and control.
+          </p>
+          <p className="impact-para">
+            Arcadeus gives growing UK businesses the financial intelligence that was previously
+            only available to large corporations with full CFO teams.
+          </p>
+        </div>
+
+        <div className="impact-stats">
+          {STATS.map(({ value, unit, descriptor }) => (
+            <div key={descriptor} className="impact-stat">
+              <div className="impact-stat-number">
+                {value}<span className="impact-stat-unit">{unit}</span>
+              </div>
+              <p className="impact-stat-desc">{descriptor}</p>
             </div>
-            <p className="impact-stat-desc">{descriptor}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ImpactStats;
