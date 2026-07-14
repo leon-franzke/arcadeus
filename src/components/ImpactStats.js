@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import './ImpactStats.css';
 
 const STATS = [
@@ -7,26 +7,8 @@ const STATS = [
   { value: '3×', unit: '', descriptor: 'faster than traditional bookkeeping' },
 ];
 
-const ImpactStats = () => {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        window.dispatchEvent(new Event(
-          entry.isIntersecting ? 'arcadeus:darkSection' : 'arcadeus:lightSection'
-        ));
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section className="impact" ref={ref}>
+const ImpactStats = () => (
+    <section className="impact">
       <div className="impact-inner">
         <div className="impact-text">
           <p className="impact-para">
@@ -51,7 +33,6 @@ const ImpactStats = () => {
         </div>
       </div>
     </section>
-  );
-};
+);
 
 export default ImpactStats;
