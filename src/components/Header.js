@@ -53,7 +53,7 @@ const Header = () => {
     };
   }, []);
 
-  const theme = (darkModal && modal) ? 'dark-modal' : (scrolled || modal) ? 'light' : 'dark';
+  const theme = ((darkModal && modal) || modal === 'pricing') ? 'dark-modal' : (scrolled || modal) ? 'light' : 'dark';
   const openModal = (name) => (e) => { e.preventDefault(); setModal(name); };
   const closeModal = () => { setModal(null); setDarkModal(false); };
   const onLogoClick = () => { if (modal) closeModal(); };
