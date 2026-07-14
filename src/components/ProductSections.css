@@ -287,7 +287,7 @@
   margin-bottom: 14px;
 }
 
-/* Live flashing badge */
+/* Live badge */
 .fc-live-badge {
   display: flex;
   align-items: center;
@@ -297,7 +297,6 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #1a7a4a;
-  animation: fc-flash 1.4s step-end infinite;
 }
 
 .fc-live-dot {
@@ -306,6 +305,7 @@
   border-radius: 50%;
   background: #1a7a4a;
   flex-shrink: 0;
+  animation: fc-flash 1.4s step-end infinite;
 }
 
 @keyframes fc-flash {
