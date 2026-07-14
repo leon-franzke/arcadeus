@@ -100,7 +100,7 @@ const FAQModal = ({ onClose }) => {
           </div>
         </div>
 
-        <Footer />
+        <Footer light />
       </div>
     </div>
   );

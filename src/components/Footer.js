@@ -1,8 +1,8 @@
 import React from 'react';
 import './Footer.css';
 
-const Footer = () => (
-  <footer className="footer">
+const Footer = ({ light }) => (
+  <footer className={`footer ${light ? 'footer--light' : ''}`}>
     <div className="footer-inner">
       <div className="footer-top">
         <span className="footer-logo">Arcadeus</span>
