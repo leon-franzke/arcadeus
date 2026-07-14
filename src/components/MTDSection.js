@@ -61,7 +61,7 @@ const MTDSection = () => (
 
       <div className="mtd-rates-header">
         <p className="mtd-eyebrow">Current UK VAT Rates</p>
-        <p className="mtd-rates-note">Arcadeus auto-detects and applies the correct VAT rate on every transaction. Our AI scanning engine reads raw receipt data — supplier name, line items, totals — and classifies each expense automatically, so you never have to assign a rate manually.</p>
+        <p className="mtd-rates-note">Arcadeus auto-detects and applies the correct rate on every transaction.<br />Our AI engine reads raw receipt data and classifies each expense automatically.</p>
       </div>
 
       <div className="mtd-rates">

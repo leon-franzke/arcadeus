@@ -149,8 +149,11 @@
 .mtd-rates-note {
   font-family: var(--font-sans);
   font-size: 13px;
+  line-height: 1.6;
   color: rgba(0,0,0,0.38);
   margin: 0;
+  text-align: right;
+  margin-left: auto;
 }
 
 .mtd-rates {
