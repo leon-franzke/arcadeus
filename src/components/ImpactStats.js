@@ -2,9 +2,10 @@ import React from 'react';
 import './ImpactStats.css';
 
 const STATS = [
-  { value: '15+', unit: 'hrs', descriptor: 'saved on finance admin per month' },
-  { value: '£2,400', unit: '', descriptor: 'average annual tax saved per business' },
-  { value: '3×', unit: '', descriptor: 'faster than traditional bookkeeping' },
+  { value: '384', unit: 'hrs', descriptor: 'lost to admin every year — the equivalent of 10 full working weeks' },
+  { value: '61%', unit: '', descriptor: 'of UK small businesses have no real-time view of their cash position' },
+  { value: '£22k', unit: '', descriptor: 'in unpaid invoices owed to the average affected UK business' },
+  { value: '82%', unit: '', descriptor: 'of failed UK SMEs cite cash flow as the primary cause of failure' },
 ];
 
 const ImpactStats = () => (
