@@ -149,7 +149,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 6% 14vh 32px;
+  padding: 0 6% calc(50vh - 240px) 32px;
   pointer-events: none;
 }
 
