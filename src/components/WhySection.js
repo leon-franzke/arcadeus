@@ -21,12 +21,12 @@ const DIV_X  = BOX_R;
 /* nodes */
 const LEFT_NODES   = ['HSBC', 'Barclays', 'Monzo', 'Starling', 'Lloyds'];
 const RIGHT_NODES  = ['Stripe', 'Xero', 'QuickBooks'];
-const BOTTOM_NODES = ['HMRC', 'MTD Filing'];
+const BOTTOM_NODES = ['HMRC MTD Filing'];
 
 const LEFT_YS   = [-140, -70, 0, 70, 140].map(d => CY + d);
 const RIGHT_YS  = [-75, 0, 75].map(d => CY + d);
 const BOTTOM_Y  = 390;
-const BOTTOM_XS = [CX - 80, CX + 80];   // x centres of bottom pills
+const BOTTOM_XS = [CX];   // single centred pill
 
 /* bezier path helpers */
 const leftPath   = (y) =>
@@ -37,7 +37,7 @@ const bottomPath = (x) =>
   `M ${CX} ${BOX_B} C ${CX} ${(BOX_B + BOTTOM_Y) / 2} ${x} ${BOTTOM_Y - 40} ${x} ${BOTTOM_Y - NODE_H / 2}`;
 
 /* ── node pill ──────────────────────────────── */
-const NodePill = ({ label, x, y, delay, align, inView }) => (
+const NodePill = ({ label, x, y, delay, align, inView, nodeW = NODE_W }) => (
   <motion.g
     animate={inView
       ? { opacity: 1, x: 0 }
@@ -46,14 +46,14 @@ const NodePill = ({ label, x, y, delay, align, inView }) => (
   >
     <rect
       x={x} y={y - NODE_H / 2}
-      width={NODE_W} height={NODE_H}
+      width={nodeW} height={NODE_H}
       rx={NODE_H / 2}
       fill="#ffffff"
       stroke="rgba(0,0,0,0.1)"
       strokeWidth="1"
     />
     <text
-      x={x + NODE_W / 2} y={y + 5}
+      x={x + nodeW / 2} y={y + 5}
       textAnchor="middle"
       fill="#0D0D0D"
       fontSize="11.5"
@@ -140,10 +140,11 @@ const EcosystemMap = () => {
         />
       ))}
 
-      {/* ── bottom node pills (tax) ───────── */}
+      {/* ── bottom node pill (tax) ────────── */}
       {BOTTOM_NODES.map((label, i) => (
         <NodePill key={label} label={label}
-          x={BOTTOM_XS[i] - NODE_W / 2} y={BOTTOM_Y}
+          x={BOTTOM_XS[i] - 68} y={BOTTOM_Y}
+          nodeW={136}
           delay={0.65 + i * 0.1} align="bottom" inView={inView}
         />
       ))}
