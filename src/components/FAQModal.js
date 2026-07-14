@@ -90,7 +90,7 @@ const FAQModal = ({ onClose }) => {
                 We're happy to walk you through the platform, discuss your specific needs, or help you figure out if Arcadeus is the right fit.
               </p>
               <a
-                href="mailto:hello@arcadeus.ai"
+                href="mailto:leon.franzke@arcadeus.ai"
                 className="fmodal-sales-btn"
               >
                 Connect to Sales

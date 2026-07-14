@@ -338,10 +338,10 @@ const Product = () => {
               <p>Join leading PE firms, investment banks, and hedge funds using Arcadeus</p>
               
               <div className="cta-buttons">
-                <a href="mailto:info@arcadeus.ai?subject=Arcadeus%20-%20Product%20Demo" className="btn btn-primary btn-large">
+                <a href="mailto:leon.franzke@arcadeus.ai?subject=Arcadeus%20-%20Product%20Demo" className="btn btn-primary btn-large">
                   Request a Demo
                 </a>
-                <a href="mailto:info@arcadeus.ai?subject=Arcadeus%20-%20Free%20Trial%20Request" className="btn btn-secondary btn-large" style={{ textDecoration: 'none' }}>
+                <a href="mailto:leon.franzke@arcadeus.ai?subject=Arcadeus%20-%20Free%20Trial%20Request" className="btn btn-secondary btn-large" style={{ textDecoration: 'none' }}>
                   Start Free Trial
                 </a>
               </div>

@@ -167,7 +167,7 @@ const About = ({ setCurrentPage }) => {
             viewport={{ once: true }}
           >
             <button className="start-free-btn" onClick={() => setCurrentPage && setCurrentPage('pricing')}>Start for free</button>
-            <button className="book-demo-btn" onClick={() => window.location.href = 'mailto:info@arcadeus.ai?subject=Arcadeus%20-%20Product%20Demo'}>Book a demo</button>
+            <button className="book-demo-btn" onClick={() => window.location.href = 'mailto:leon.franzke@arcadeus.ai?subject=Arcadeus%20-%20Product%20Demo'}>Book a demo</button>
           </motion.div>
         </div>
 

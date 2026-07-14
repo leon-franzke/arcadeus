@@ -98,7 +98,7 @@ const PricingModal = ({ onClose }) => {
                 ))}
               </ul>
               <a
-                href={tier.contactLink ? 'mailto:hello@arcadeus.ai' : 'https://app.arcadeus.ai'}
+                href={tier.contactLink ? 'mailto:leon.franzke@arcadeus.ai' : 'https://app.arcadeus.ai'}
                 className={`prmodal-cta ${tier.highlight ? 'prmodal-cta--featured' : ''}`}
               >
                 {tier.cta}

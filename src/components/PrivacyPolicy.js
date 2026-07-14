@@ -119,7 +119,7 @@ const PrivacyPolicy = ({ setCurrentPage }) => {
         <section>
           <h2>12. Contact</h2>
           <p>
-            If you have questions, contact us at: <a href="mailto:info@arcadeus.ai">info@arcadeus.ai</a>
+            If you have questions, contact us at: <a href="mailto:leon.franzke@arcadeus.ai">info@arcadeus.ai</a>
           </p>
         </section>
       </div>
