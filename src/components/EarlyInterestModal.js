@@ -33,8 +33,11 @@ const EarlyInterestModal = ({ onClose }) => {
           'last-name': form.lastName,
           'email': form.email,
         }).toString(),
+        redirect: 'manual',
       });
-      setStatus(res.ok ? 'success' : 'error');
+      // Netlify returns 200, 204, or a manual redirect (opaqueredirect) on success
+      const ok = res.ok || res.type === 'opaqueredirect' || res.status === 0 || res.status === 302;
+      setStatus(ok ? 'success' : 'error');
     } catch {
       setStatus('error');
     }
