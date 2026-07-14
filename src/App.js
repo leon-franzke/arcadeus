@@ -9,7 +9,6 @@ import Stats from './components/Stats';
 import WhySection from './components/WhySection';
 import SecuritySection from './components/SecuritySection';
 import MTDSection from './components/MTDSection';
-import BottomCTA from './components/BottomCTA';
 import Footer from './components/Footer';
 
 const PREVIEW_KEY = 'arcadeus_preview';
@@ -69,7 +68,6 @@ function App() {
       <WhySection />
       <SecuritySection />
       <MTDSection />
-      <BottomCTA />
       <Footer />
     </div>
   );
