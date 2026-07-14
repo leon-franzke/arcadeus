@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: 'How does the bank connection work?',
-    a: 'We use secure Open Banking APIs to connect directly to your business accounts. The connection is read-only — Arcadeus can see your transactions but can never move funds. We support 10,000+ UK banks and institutions.',
+    a: 'We use secure Open Banking APIs to connect directly to your business accounts. The connection is read-only — Arcadeus can see your transactions but can never move funds. We support all major UK banks including HSBC, Barclays, Lloyds, NatWest, Monzo, Starling, and more.',
   },
   {
     q: 'Is my financial data secure?',
