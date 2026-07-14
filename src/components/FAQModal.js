@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './FAQModal.css';
-import Footer from './Footer';
 
 const faqs = [
   {
@@ -100,7 +99,6 @@ const FAQModal = ({ onClose }) => {
           </div>
         </div>
 
-        <Footer light />
       </div>
     </div>
   );
