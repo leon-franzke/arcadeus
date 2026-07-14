@@ -47,12 +47,12 @@ const securityBadges = [
     ),
   },
   {
-    label: 'UK Data Residency',
-    desc: 'Your financial data never leaves UK servers. Fully GDPR compliant and subject to UK data protection law.',
+    label: 'SOC 2 Compliant',
+    desc: 'Arcadeus is SOC 2 Type II certified — independently audited for security, availability, and confidentiality controls, so your data is protected to enterprise standards.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 2a14.5 14.5 0 010 20M2 12h20" />
+        <path d="M12 2L3 6v6c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V6L12 2z" />
+        <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
