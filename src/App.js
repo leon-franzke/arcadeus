@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import LogoBar from './components/LogoBar';
 import FeatureScroll from './components/FeatureScroll';
 import ImpactStats from './components/ImpactStats';
-import Stats from './components/Stats';
 import WhySection from './components/WhySection';
 import SecuritySection from './components/SecuritySection';
 import MTDSection from './components/MTDSection';
@@ -64,7 +63,6 @@ function App() {
       <LogoBar />
       <FeatureScroll />
       <ImpactStats />
-      <Stats />
       <WhySection />
       <SecuritySection />
       <MTDSection />
