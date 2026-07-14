@@ -97,12 +97,21 @@ const PricingModal = ({ onClose }) => {
                   </li>
                 ))}
               </ul>
-              <a
-                href={tier.contactLink ? 'mailto:leon.franzke@arcadeus.ai' : 'https://app.arcadeus.ai'}
-                className={`prmodal-cta ${tier.highlight ? 'prmodal-cta--featured' : ''}`}
-              >
-                {tier.cta}
-              </a>
+              {tier.contactLink ? (
+                <a
+                  href="mailto:leon.franzke@arcadeus.ai"
+                  className={`prmodal-cta ${tier.highlight ? 'prmodal-cta--featured' : ''}`}
+                >
+                  {tier.cta}
+                </a>
+              ) : (
+                <button
+                  className={`prmodal-cta ${tier.highlight ? 'prmodal-cta--featured' : ''}`}
+                  onClick={() => window.dispatchEvent(new Event('arcadeus:signUp'))}
+                >
+                  {tier.cta}
+                </button>
+              )}
             </div>
           ))}
         </div>

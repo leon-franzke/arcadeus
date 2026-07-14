@@ -8,6 +8,7 @@ import ImpactStats from './components/ImpactStats';
 import WhySection from './components/WhySection';
 import MTDSection from './components/MTDSection';
 import Footer from './components/Footer';
+import EarlyInterestModal from './components/EarlyInterestModal';
 
 const PREVIEW_KEY = 'arcadeus_preview';
 const PREVIEW_PASSWORD = 'ARCADEUS';
@@ -43,6 +44,7 @@ function ComingSoon() {
 
 function App() {
   const [unlocked, setUnlocked] = useState(false);
+  const [showInterest, setShowInterest] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -51,6 +53,12 @@ function App() {
       window.history.replaceState({}, '', window.location.pathname);
     }
     if (localStorage.getItem(PREVIEW_KEY) === '1') setUnlocked(true);
+  }, []);
+
+  useEffect(() => {
+    const onSignUp = () => setShowInterest(true);
+    window.addEventListener('arcadeus:signUp', onSignUp);
+    return () => window.removeEventListener('arcadeus:signUp', onSignUp);
   }, []);
 
   if (!unlocked) return <ComingSoon />;
@@ -65,6 +73,7 @@ function App() {
       <WhySection />
       <MTDSection />
       <Footer />
+      {showInterest && <EarlyInterestModal onClose={() => setShowInterest(false)} />}
     </div>
   );
 }

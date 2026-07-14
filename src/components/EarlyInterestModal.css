@@ -1,0 +1,170 @@
+.ei-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  padding: 24px;
+}
+
+.ei-panel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 48px 40px 40px;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+}
+
+.ei-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.ei-close:hover { color: #0D0D0D; }
+
+.ei-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.35);
+  margin: 0 0 14px;
+}
+
+.ei-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: #0D0D0D;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.ei-body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 0 28px;
+}
+
+/* ── form ───────────────────────── */
+.ei-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ei-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ei-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ei-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.ei-input {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #0D0D0D;
+  background: #F3F4EF;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ei-input::placeholder { color: rgba(0, 0, 0, 0.28); }
+.ei-input:focus { border-color: rgba(0, 0, 0, 0.25); }
+
+.ei-error {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #c0392b;
+  margin: 0;
+}
+
+.ei-submit {
+  margin-top: 4px;
+  background: #0D0D0D;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.ei-submit:hover:not(:disabled) { opacity: 0.82; }
+.ei-submit:disabled { opacity: 0.5; cursor: default; }
+
+/* ── success state ──────────────── */
+.ei-success {
+  text-align: center;
+  padding: 24px 0 8px;
+}
+
+.ei-success-icon {
+  width: 52px;
+  height: 52px;
+  background: #0D0D0D;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 20px;
+}
+
+.ei-success-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: #0D0D0D;
+  margin: 0 0 10px;
+}
+
+.ei-success-body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .ei-panel { padding: 40px 24px 32px; }
+  .ei-row { grid-template-columns: 1fr; }
+}

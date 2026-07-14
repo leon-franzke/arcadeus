@@ -89,7 +89,12 @@ const Header = () => {
 
           <div className="header-actions">
             <a href="https://app.arcadeus.ai" className="header-login">Log In</a>
-            <a href="https://app.arcadeus.ai" className="header-cta">Sign Up</a>
+            <button
+              className="header-cta"
+              onClick={() => window.dispatchEvent(new Event('arcadeus:signUp'))}
+            >
+              Sign Up
+            </button>
           </div>
         </div>
       </header>

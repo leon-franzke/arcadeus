@@ -20,7 +20,7 @@ const Hero = () => (
       <p className="hero-subtitle">
         The most ambitious UK businesses trust Arcadeus to manage their finances and navigate complexity.
       </p>
-      <a href="https://app.arcadeus.ai" className="hero-cta">Sign Up</a>
+      <button className="hero-cta" onClick={() => window.dispatchEvent(new Event('arcadeus:signUp'))}>Sign Up</button>
     </div>
   </section>
 );
