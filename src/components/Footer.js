@@ -36,7 +36,8 @@ const Footer = ({ light }) => (
           <ul className="footer-links">
             <li><button className="footer-link-btn" onClick={() => window.dispatchEvent(new Event('arcadeus:about'))}>About</button></li>
             <li><button className="footer-link-btn" onClick={() => window.dispatchEvent(new Event('arcadeus:security'))}>Security</button></li>
-            <li><button className="footer-link-btn" onClick={() => window.dispatchEvent(new Event('arcadeus:privacy'))}>Privacy Policy</button></li>
+            <li><a className="footer-link-btn" href="https://app.arcadeus.ai/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+            <li><a className="footer-link-btn" href="https://app.arcadeus.ai/terms" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a></li>
           </ul>
         </div>
 
