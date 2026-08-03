@@ -28,9 +28,9 @@ const pillars = [
       'We connect to your business bank accounts via FCA-regulated Open Banking APIs. The connection is strictly read-only — Arcadeus can view your transactions but can never initiate payments or move funds.',
   },
   {
-    label: 'HMRC Recognised',
+    label: 'HMRC Compatible',
     description:
-      'Arcadeus is an HMRC-recognised Making Tax Digital (MTD) compatible software. VAT returns are submitted directly through our platform via the official HMRC API.',
+      'Arcadeus is HMRC-compatible Making Tax Digital (MTD) software. VAT returns and Self Assessment are submitted directly through our platform via the official HMRC API.',
   },
 ];
 

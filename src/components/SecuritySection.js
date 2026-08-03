@@ -94,7 +94,7 @@ const SecuritySection = () => {
       <div className="security-top">
         <div className="security-top-text">
           <p className="security-eyebrow">Compliance & Security</p>
-          <h2 className="security-heading">HMRC recognised.<br />Bank-grade secure.</h2>
+          <h2 className="security-heading">HMRC compatible.<br />Bank-grade secure.</h2>
         </div>
         <p className="security-desc">
           Arcadeus is built around the two things small businesses can't afford to get wrong: tax compliance and data security. Direct HMRC API integration means your VAT returns and income tax filings go straight to HMRC — no bridging software, no manual exports.
