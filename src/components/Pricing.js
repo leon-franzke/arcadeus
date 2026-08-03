@@ -49,7 +49,7 @@ const Pricing = () => {
     {
       id: 'enterprise',
       name: 'Enterprise',
-      subtitle: 'For teams that need dedicated support and custom infrastructure.',
+      subtitle: 'For teams needing dedicated support and custom infrastructure.',
       price: 'Custom',
       period: '',
       features: [

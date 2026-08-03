@@ -42,7 +42,7 @@ const tiers = [
     name: 'Enterprise',
     price: 'Custom',
     period: '',
-    description: 'For teams that need dedicated support and custom infrastructure.',
+    description: 'For teams needing dedicated support and custom infrastructure.',
     features: [
       '25+ user licenses',
       'Unlimited transactions',
