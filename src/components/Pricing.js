@@ -7,69 +7,63 @@ const Pricing = () => {
   const [showComingSoon, setShowComingSoon] = useState(false);
   const pricingTiers = [
     {
-      id: 'lite',
-      name: 'Finance Professional Lite',
-      subtitle: 'Essential tools for getting started',
-      price: '$39',
+      id: 'starter',
+      name: 'Starter',
+      subtitle: 'For sole traders and freelancers getting started.',
+      price: '£29',
       period: '/month',
-      description: 'Core features to begin your financial modeling journey',
       features: [
-        'Up to 10 models per month',
-        'Basic AI formula suggestions',
-        'Standard templates library',
-        'Excel integration plugin'
+        '1 user license',
+        'Up to 100 transactions/month',
+        'AI receipt capture, tax categorisation & HMRC-compliant storage',
+        'AI cash flow forecast',
+        'AI deadline alerts',
+        'Customer invoicing with automated chasing function',
+        'MTD-compatible VAT & Self Assessment filing',
       ],
-      buttonText: 'Start Free Trial',
+      buttonText: 'Sign Up',
       buttonType: 'secondary',
       popular: false
     },
     {
-      id: 'expert',
-      name: 'Finance Professional Expert',
-      subtitle: 'Advanced finance tools',
-      price: '$59',
+      id: 'growth',
+      name: 'Growth',
+      subtitle: 'For growing small businesses that need the full picture.',
+      price: '£79',
       period: '/month',
-      description: 'Advanced tools for finance professionals',
       features: [
-        'Unlimited model creation',
-        'Advanced AI-powered suggestions',
-        'Premium templates library'
+        'Up to 10 user licenses',
+        'Unlimited transactions',
+        'Expense approval workflow with company hierarchy',
+        'AI receipt capture, tax categorisation & HMRC-compliant storage',
+        'AI cash flow forecast',
+        'AI deadline alerts',
+        'Customer invoicing with automated chasing function',
+        'MTD-compatible VAT & Self Assessment filing',
+        'Priority support',
       ],
-      buttonText: 'Start Free Trial',
+      buttonText: 'Sign Up',
       buttonType: 'primary',
       popular: true
     },
     {
-      id: 'education',
-      name: 'Education',
-      subtitle: 'Tailored for academic institutions',
-      price: 'Custom',
-      period: '',
-      description: 'Comprehensive solutions for educational excellence',
-      features: [
-        'Curriculum integration support',
-        'Student progress tracking',
-        'Bulk licensing discounts',
-        'Instructor training programs'
-      ],
-      buttonText: 'Contact Sales',
-      buttonType: 'secondary',
-      popular: false
-    },
-    {
       id: 'enterprise',
-      name: 'Enterprise Licenses',
-      subtitle: 'Scale across your organization',
+      name: 'Enterprise',
+      subtitle: 'For teams that need dedicated support and custom infrastructure.',
       price: 'Custom',
       period: '',
-      description: 'Advanced features for large-scale operations',
       features: [
-        'Unlimited team members',
-        'Advanced security & compliance',
-        'Custom integrations',
-        'Dedicated account manager'
+        '25+ user licenses',
+        'Unlimited receipt uploads',
+        'Custom approval workflows & company infrastructure',
+        'AI receipt capture, tax categorisation & HMRC-compliant storage',
+        'AI cash flow forecast',
+        'AI deadline alerts',
+        'Customer invoicing with automated chasing function',
+        'MTD-compatible VAT & Self Assessment filing',
+        'Priority support',
       ],
-      buttonText: 'Contact Sales',
+      buttonText: 'Contact Us',
       buttonType: 'secondary',
       popular: false
     }
@@ -135,18 +129,23 @@ const Pricing = () => {
                 </div>
 
                 <div className="card-footer">
-                  <a 
-                    href={tier.id === 'enterprise' 
-                      ? `mailto:leon.franzke@arcadeus.ai?subject=Arcadeus%20-%20Enterprise%20License%20Inquiry&body=Hello%20Arcadeus%20Team%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20your%20Enterprise%20License%20solutions.%20%0A%0APlease%20provide%20information%20about%3A%0A-%20Pricing%20for%20our%20organization%0A-%20Implementation%20timeline%0A-%20Custom%20integrations%20available%0A-%20Security%20and%20compliance%20features%0A-%20Dedicated%20account%20manager%20services%0A%0AOrganization%20details%3A%0A-%20Company%20Name%3A%20%5BPlease%20fill%20in%5D%0A-%20Number%20of%20users%3A%20%5BPlease%20fill%20in%5D%0A-%20Industry%3A%20%5BPlease%20fill%20in%5D%0A%0AThank%20you%2C%0A%5BYour%20Name%5D`
-                      : tier.id === 'education'
-                      ? `mailto:leon.franzke@arcadeus.ai?subject=Arcadeus%20-%20Education%20License%20Inquiry&body=Hello%20Arcadeus%20Team%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20your%20Education%20License%20solutions.%20%0A%0APlease%20provide%20information%20about%3A%0A-%20Educational%20pricing%20and%20discounts%0A-%20Curriculum%20integration%20support%0A-%20Student%20progress%20tracking%20features%0A-%20Instructor%20training%20programs%0A%0AInstitution%20details%3A%0A-%20Institution%20Name%3A%20%5BPlease%20fill%20in%5D%0A-%20Number%20of%20students%2Finstructors%3A%20%5BPlease%20fill%20in%5D%0A-%20Course%20type%3A%20%5BPlease%20fill%20in%5D%0A%0AThank%20you%2C%0A%5BYour%20Name%5D`
-                      : `mailto:leon.franzke@arcadeus.ai?subject=Arcadeus%20-%20${tier.buttonText === 'Start Free Trial' ? 'Free%20Trial%20Request' : 'Contact%20Sales'}&body=Hello%20Arcadeus%20Team%2C%0A%0AI%20am%20interested%20in%20getting%20started%20with%20Arcadeus.%20Please%20provide%20more%20information%20about%20your%20services.%0A%0AThank%20you%2C%0A%5BYour%20Name%5D`
-                    }
-                    className={`pricing-btn ${tier.buttonType === 'primary' ? 'btn-primary' : 'btn-secondary'}`}
-                    style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}
-                  >
-                    {tier.buttonText}
-                  </a>
+                  {tier.id === 'enterprise' ? (
+                    <a
+                      href="mailto:leon.franzke@arcadeus.ai?subject=Arcadeus%20-%20Enterprise%20Inquiry&body=Hello%20Arcadeus%20Team%2C%0A%0AI%20am%20interested%20in%20the%20Enterprise%20plan.%20Please%20get%20in%20touch.%0A%0AThank%20you%2C%0A%5BYour%20Name%5D"
+                      className={`pricing-btn btn-secondary`}
+                      style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}
+                    >
+                      {tier.buttonText}
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => window.dispatchEvent(new Event('arcadeus:signUp'))}
+                      className={`pricing-btn ${tier.buttonType === 'primary' ? 'btn-primary' : 'btn-secondary'}`}
+                      style={{ width: '100%' }}
+                    >
+                      {tier.buttonText}
+                    </button>
+                  )}
                 </div>
               </motion.div>
             ))}
