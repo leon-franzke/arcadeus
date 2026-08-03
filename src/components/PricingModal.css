@@ -124,6 +124,10 @@
   align-self: flex-start;
 }
 
+.prmodal-badge--hidden {
+  visibility: hidden;
+}
+
 .prmodal-tier-name {
   font-family: var(--font-sans);
   font-size: 13px;

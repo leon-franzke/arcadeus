@@ -8,12 +8,13 @@ const tiers = [
     period: '/month',
     description: 'For sole traders and freelancers getting started.',
     features: [
+      '1 user license',
       'Up to 100 transactions/month',
-      'AI receipt capture',
-      'Invoice creation & sending',
-      'Cash flow dashboard',
-      'Basic tax estimates',
-      'Email support',
+      'AI receipt capture, tax categorisation & HMRC-compliant storage',
+      'AI cash flow forecast',
+      'AI deadline alerts',
+      'Customer invoicing with automated chasing function',
+      'MTD-compatible VAT & Self Assessment filing',
     ],
     cta: 'Sign Up',
     highlight: false,
@@ -24,13 +25,14 @@ const tiers = [
     period: '/month',
     description: 'For growing small businesses that need the full picture.',
     features: [
+      'Up to 10 user licenses',
       'Unlimited transactions',
-      'Bank API connections',
-      'AI receipt capture',
-      'Invoice & expense management',
-      'Live P&L and cash flow',
-      'VAT & tax management',
-      'Smart alerts',
+      'Expense approval workflow with company hierarchy',
+      'AI receipt capture, tax categorisation & HMRC-compliant storage',
+      'AI cash flow forecast',
+      'AI deadline alerts',
+      'Customer invoicing with automated chasing function',
+      'MTD-compatible VAT & Self Assessment filing',
       'Priority support',
     ],
     cta: 'Sign Up',
@@ -40,14 +42,17 @@ const tiers = [
     name: 'Enterprise',
     price: 'Custom',
     period: '',
-    description: 'For teams that need dedicated support and custom integrations.',
+    description: 'For teams that need dedicated support and custom infrastructure.',
     features: [
-      'Everything in Growth',
-      'Custom integrations',
-      'Dedicated account manager',
-      'SLA guarantee',
-      'Team access & permissions',
-      'Custom reporting',
+      '25+ user licenses',
+      'Unlimited receipt uploads',
+      'Custom approval workflows & company infrastructure',
+      'AI receipt capture, tax categorisation & HMRC-compliant storage',
+      'AI cash flow forecast',
+      'AI deadline alerts',
+      'Customer invoicing with automated chasing function',
+      'MTD-compatible VAT & Self Assessment filing',
+      'Priority support',
     ],
     cta: 'Contact Us',
     highlight: false,
@@ -82,7 +87,7 @@ const PricingModal = ({ onClose }) => {
         <div className="prmodal-tiers">
           {tiers.map((tier) => (
             <div className={`prmodal-tier ${tier.highlight ? 'prmodal-tier--featured' : ''}`} key={tier.name}>
-              {tier.highlight && <span className="prmodal-badge">Most Popular</span>}
+              <span className={`prmodal-badge ${tier.highlight ? '' : 'prmodal-badge--hidden'}`}>Most Popular</span>
               <p className="prmodal-tier-name">{tier.name}</p>
               <div className="prmodal-price-row">
                 <span className="prmodal-price">{tier.price}</span>
