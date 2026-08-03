@@ -37,12 +37,12 @@
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   width: 100%;
   margin: 1.5rem 0 0 0;
-  padding: 1rem 1rem 0;
-  align-items: stretch;
+  padding: 2rem 1rem 0;
+  align-items: start;
 }
 
 .pricing-card {
@@ -56,11 +56,11 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  height: 480px;
+  height: auto;
   overflow: visible;
   word-wrap: break-word;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .pricing-card:hover {
@@ -285,9 +285,17 @@
 /* Responsive Design */
 @media (max-width: 1200px) {
   .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem 0.5rem 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    padding: 0 0.5rem;
+    padding: 2rem 0.5rem 0;
   }
 }
 
@@ -342,7 +350,7 @@
   .pricing-card {
     padding: 1.5rem 1.25rem;
     max-height: none;
-    margin: 20px 0 0 0;
+    margin: 0;
     width: 350px !important;
     max-width: none;
     min-width: none;
