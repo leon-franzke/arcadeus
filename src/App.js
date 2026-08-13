@@ -19,7 +19,7 @@ function App() {
   const [showPrivacy, setShowPrivacy] = useState(false);
 
   useEffect(() => {
-    const onSignUp = () => window.open('https://app.arcadeus.ai/pricing', '_blank');
+    const onSignUp = () => window.dispatchEvent(new Event('arcadeus:openPricing'));
     const onAbout = () => setShowAbout(true);
     const onSecurity = () => setShowSecurity(true);
     const onPrivacy = () => setShowPrivacy(true);

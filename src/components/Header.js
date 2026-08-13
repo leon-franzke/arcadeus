@@ -94,7 +94,7 @@ const Header = () => {
             <a href="https://app.arcadeus.ai" className="header-login">Log In</a>
             <button
               className="header-cta"
-              onClick={() => window.dispatchEvent(new Event('arcadeus:signUp'))}
+              onClick={openModal('pricing')}
             >
               Sign Up
             </button>
