@@ -3,6 +3,7 @@ import './PricingModal.css';
 
 const tiers = [
   {
+    id: 'starter',
     name: 'Starter',
     price: '£29',
     period: '/month',
@@ -20,6 +21,7 @@ const tiers = [
     highlight: false,
   },
   {
+    id: 'growth',
     name: 'Growth',
     price: '£79',
     period: '/month',
@@ -112,7 +114,7 @@ const PricingModal = ({ onClose }) => {
               ) : (
                 <button
                   className={`prmodal-cta ${tier.highlight ? 'prmodal-cta--featured' : ''}`}
-                  onClick={() => window.dispatchEvent(new Event('arcadeus:signUp'))}
+                  onClick={() => window.open(`https://app.arcadeus.ai/?mode=signup&plan=${tier.id}`, '_blank')}
                 >
                   {tier.cta}
                 </button>

@@ -139,7 +139,7 @@ const Pricing = () => {
                     </a>
                   ) : (
                     <button
-                      onClick={() => window.dispatchEvent(new Event('arcadeus:signUp'))}
+                      onClick={() => window.open(`https://app.arcadeus.ai/?mode=signup&plan=${tier.id}`, '_blank')}
                       className={`pricing-btn ${tier.buttonType === 'primary' ? 'btn-primary' : 'btn-secondary'}`}
                       style={{ width: '100%' }}
                     >
