@@ -40,6 +40,12 @@ const Header = () => {
   }, [modal, bannerGone]);
 
   useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('pricing') === '1') {
+      setModal('pricing');
+    }
+  }, []);
+
+  useEffect(() => {
     const onDark = () => setDarkModal(true);
     const onLight = () => setDarkModal(false);
     const onPricing = () => setModal('pricing');
